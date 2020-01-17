@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7525e4288c3fee148959280b3b3f81f6, type: 3}
+  m_Name: HalfRotHeart
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8486234896579479206, guid: 86cd773b31c6809489fffad9ac5c4d5b, type: 3}
+  type: 0
+  description: This has gone way to far. You better hurry and get what you can before
+    it's complete mush.
+  value: 1

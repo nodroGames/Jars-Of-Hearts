@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7525e4288c3fee148959280b3b3f81f6, type: 3}
   m_Name: QuarterRotHeart
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1709743029327422503, guid: 81f84eda6f462f84ea8fcc3e0e44d8dd, type: 3}
+  prefab: {fileID: 2182127104810690320, guid: 4a0c30482bf14c44b8bfb52303bbb8b8, type: 3}
   type: 0
   description: So... you've let this heart go for a bit... there should still be a
     little value...

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
-    // Start is called before the first frame update
 
     public void OnTriggerEnter2D(Collider2D other)
     {

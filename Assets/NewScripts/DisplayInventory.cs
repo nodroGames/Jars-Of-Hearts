@@ -13,6 +13,8 @@ public class DisplayInventory : MonoBehaviour
     public int NUMBER_OF_COLUMN;
     public int Y_SPACE_BETWEEN_ITEM;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +32,14 @@ public class DisplayInventory : MonoBehaviour
         {
             if (itemsDisplayed.ContainsKey(inventory.Container[i]))
             {
-                //Do Something
+                itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("0");
             }
             else
             {
                 var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                 // To Display The Amount Of Items:
-                //obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i], obj);
             }
         }
@@ -50,7 +52,7 @@ public class DisplayInventory : MonoBehaviour
             var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             // To Display The Amount Of Items:
-            //obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
             itemsDisplayed.Add(inventory.Container[i], obj);
         }
     }

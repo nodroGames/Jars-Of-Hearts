@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7525e4288c3fee148959280b3b3f81f6, type: 3}
   m_Name: HalfRotHeart
   m_EditorClassIdentifier: 
-  prefab: {fileID: 90776569973650409, guid: 81f84eda6f462f84ea8fcc3e0e44d8dd, type: 3}
+  uiDisplay: {fileID: 21300000, guid: f4dffe26cf732714190affed49465707, type: 3}
+  Id: 2
   type: 0
+  location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: This has gone way to far. You better hurry and get what you can before
     it's complete mush.
   value: 1

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7525e4288c3fee148959280b3b3f81f6, type: 3}
   m_Name: HealthyHeart
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3265148486126988525, guid: c3856823dac1e2b419f778dee5a848a1, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 5d75f9fdd8c046244adc65fe5ff31a26, type: 3}
+  Id: 0
   type: 0
+  location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: You were able to collect this heart while it was still fresh! Excellent!
   value: 3

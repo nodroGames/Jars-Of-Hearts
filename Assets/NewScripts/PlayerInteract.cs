@@ -37,19 +37,11 @@ namespace Assets.NewScripts
 
         private void Interaction()
         { 
-            if (Input.GetButtonDown("Interact")  && currentInterObj)
+            if (Input.GetButtonDown("Interact") && currentInterObj != null)
             {
                 //Check to see if this object is to be stored in inventory/which inventory
                 if (currentInterObjScript.heartInventory)
                 {
-                    //if (inventory == null)
-                    //{
-                    //    Debug.LogError("Can't find inventory after interact");
-                    //}
-                    //if (inventory != null)
-                    //{
-                    //    Debug.LogError("The Inventory is in game after interact");
-                    //}
 
                     currentInterObj.GetComponent<RealHeartScript>().HeartInInventory(inventory);
                     //fTutScript.DestroyFIcon();
@@ -88,26 +80,6 @@ namespace Assets.NewScripts
                 }
             }
         }
-
-        /*private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("InterObject") || other.gameObject.CompareTag("CounterTop"))
-            {
-                currentInterObj = other.gameObject;
-                currentInterObjScript = currentInterObj.GetComponent<InteractionObject>();
-
-            }
-        }
-
-        private void OnCollisionExit2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("InterObject") || other.gameObject.CompareTag("CounterTop"))
-            {
-                if (other.gameObject == currentInterObj)
-                {
-                    currentInterObj = null;
-                }
-            }
-        }*/
+        
     }
 }

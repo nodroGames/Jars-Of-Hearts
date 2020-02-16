@@ -21,10 +21,10 @@ namespace Assets.NewScripts
 
         [SerializeField]
         private GameObject heartItemUI;
-        [SerializeField]
-        private GameObject instructionalF;
-        [SerializeField]
-        private Transform instructionLocation;
+        //[SerializeField]
+        //private GameObject instructionalF;
+        //[SerializeField]
+        //private Transform instructionLocation;
 
         public GameObject healthyHeartIconUI;
         public GameObject halfRotHeartIconUI;
@@ -54,8 +54,8 @@ namespace Assets.NewScripts
         private void Start()
         {
             heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
-            GameObject iLGO = Instantiate(instructionalF, transform.position, instructionalF.transform.rotation);
-            iLGO.transform.SetParent(instructionLocation);
+            //GameObject iLGO = Instantiate(instructionalF, transform.position, instructionalF.transform.rotation);
+            //iLGO.transform.SetParent(instructionLocation);
             currentRotTime = rotBaseTime;
             locationType = LocationType.Floor;
             heartStateType = HeartStateType.Healthy;

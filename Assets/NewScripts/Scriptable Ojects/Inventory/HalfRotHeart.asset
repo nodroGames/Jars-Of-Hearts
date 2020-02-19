@@ -19,3 +19,8 @@ MonoBehaviour:
   description: This has gone way to far. You better hurry and get what you can before
     it's complete mush.
   value: 1
+  buffs:
+  - attribute: 1
+    value: 1
+    min: 0
+    max: 0

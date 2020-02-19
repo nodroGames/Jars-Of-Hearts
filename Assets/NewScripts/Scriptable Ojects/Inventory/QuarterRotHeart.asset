@@ -19,3 +19,8 @@ MonoBehaviour:
   description: So... you've let this heart go for a bit... there should still be a
     little value...
   value: 2
+  buffs:
+  - attribute: 1
+    value: 2
+    min: 0
+    max: 0

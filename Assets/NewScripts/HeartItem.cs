@@ -1,10 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class HeartItem : MonoBehaviour
+public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 {
     public InventoryType item;
+
+    public void OnAfterDeserialize()
+    {
+        
+    }
+
+    public void OnBeforeSerialize()
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
+        EditorUtility.SetDirty(GetComponentInChildren<SpriteRenderer>());
+    }
 
     /*public LocationTypes location;
 

@@ -18,3 +18,8 @@ MonoBehaviour:
   location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: You were able to collect this heart while it was still fresh! Excellent!
   value: 3
+  buffs:
+  - attribute: 1
+    value: 3
+    min: 0
+    max: 0

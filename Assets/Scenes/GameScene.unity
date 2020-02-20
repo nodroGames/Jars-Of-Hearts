@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 180876641}
   - component: {fileID: 180876642}
   - component: {fileID: 180876643}
+  - component: {fileID: 180876644}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -652,6 +653,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 37868220}
+--- !u!95 &180876644
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180876640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7bbe07b11f9123409d0f42871755817, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &187318143
 GameObject:
   m_ObjectHideFlags: 0
@@ -5477,7 +5497,7 @@ Canvas:
   m_GameObject: {fileID: 1022067165}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 37868220}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -6484,6 +6504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475686483962303473, guid: 92b3bcad6821d0147986893717ed5d6e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6314400419661081711, guid: 92b3bcad6821d0147986893717ed5d6e,
         type: 3}
@@ -7830,7 +7855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -42.600006, y: 71.5}
+  m_AnchoredPosition: {x: -42.599854, y: 71.5}
   m_SizeDelta: {x: 69.79999, y: 283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731443542
@@ -11045,6 +11070,7 @@ GameObject:
   - component: {fileID: 2127313046}
   - component: {fileID: 2127313048}
   - component: {fileID: 2127313047}
+  - component: {fileID: 2127313049}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -11127,6 +11153,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2127313049
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127313045}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2238475125335868471
 PrefabInstance:
   m_ObjectHideFlags: 0

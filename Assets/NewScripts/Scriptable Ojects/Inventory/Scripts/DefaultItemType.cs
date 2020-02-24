@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewDefaultItem", menuName = "Scriptable Objects/Inventory Item/Default Type")]
+[CreateAssetMenu(fileName = "NewDefaultItem", menuName = "Scriptable Objects/Inventory System/Inventory Item/Default Type")]
 public class DefaultItemType : InventoryType
 {
     public void Awake()

@@ -18,7 +18,6 @@ MonoBehaviour:
   location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: This has gone way to far. You better hurry and get what you can before
     it's complete mush.
-  value: 1
   buffs:
   - attribute: 1
     value: 1

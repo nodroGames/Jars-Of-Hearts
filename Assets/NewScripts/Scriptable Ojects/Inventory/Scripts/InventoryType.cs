@@ -44,6 +44,11 @@ public class Item
     public int Id;
     public ItemBuff[] buffs;
 
+    public Item()
+    {
+        Name = "";
+        Id = -1;
+    }
     public Item(InventoryType item)
     {
         Name = item.name;

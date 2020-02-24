@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1146486081944592759}
   - component: {fileID: 2384026032172052884}
   m_Layer: 5
-  m_Name: InventoryPrefab
+  m_Name: SlotPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -256,8 +256,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000103060465, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 4.612503, y: -12.5}
+  m_SizeDelta: {x: 30.77, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2556135786358239181
 CanvasRenderer:
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 98.871704, y: 25.990955, z: 96.05733, w: 18.590046}
+  m_margin: {x: 28.765625, y: 25.990955, z: 33.6902, w: 18.590046}
   m_textInfo:
     textComponent: {fileID: 2556135786358239180}
     characterCount: 0

@@ -13,14 +13,10 @@ MonoBehaviour:
   m_Name: QuarterRotHeart
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: c80b9cb94b479ac4da705b66d062eaed, type: 3}
+  stackable: 0
   data:
     Name: 
-    Id: 1
-    buffs:
-    - attribute: 1
-      value: 0
-      min: 0
-      max: 0
+    Id: 5
   type: 0
   location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: So... you've let this heart go for a bit... there should still be a

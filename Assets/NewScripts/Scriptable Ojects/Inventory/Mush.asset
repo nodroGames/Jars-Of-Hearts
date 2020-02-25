@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014f3141d75f42e4891d0a600a497e3a, type: 3}
   m_Name: Mush
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  uiDisplay: {fileID: 0}
+  data:
+    Name: 
+    Id: -1
+    buffs:
+    - attribute: 1
+      value: 0
+      min: 0
+      max: 0
   type: 2
+  location: {fileID: 0}
   description: 
-  value: 0

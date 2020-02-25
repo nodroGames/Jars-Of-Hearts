@@ -15,24 +15,32 @@ MonoBehaviour:
   savePath: 
   Container:
     Items:
-    - ID: -1
+    - AllowedItems: 00000000
+      parent: {fileID: 0}
       item:
         Name: 
-        Id: 0
+        Id: -1
+        buffs: []
       amount: 0
-    - ID: -1
+    - AllowedItems: 00000000
+      parent: {fileID: 0}
       item:
         Name: 
-        Id: 0
+        Id: -1
+        buffs: []
       amount: 0
-    - ID: -1
+    - AllowedItems: 00000000
+      parent: {fileID: 0}
       item:
         Name: 
-        Id: 0
+        Id: -1
+        buffs: []
       amount: 0
-    - ID: -1
+    - AllowedItems: 00000000
+      parent: {fileID: 0}
       item:
         Name: 
-        Id: 0
+        Id: -1
+        buffs: []
       amount: 0
   database: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e, type: 2}

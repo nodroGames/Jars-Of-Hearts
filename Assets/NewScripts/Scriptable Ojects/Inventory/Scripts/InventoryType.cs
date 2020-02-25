@@ -9,11 +9,11 @@ public enum ItemType
     Default
 }
 
-public enum Attributes
-{
-    Stackable,
-    NotStackable
-}
+//public enum Attributes
+//{
+//    Stackable,
+//    NotStackable
+//}
 
 public abstract class InventoryType : ScriptableObject
 {
@@ -21,13 +21,12 @@ public abstract class InventoryType : ScriptableObject
     public Sprite uiDisplay;
 
     [Header("= Data =")]
-    public int Id;
+    public bool stackable;
+    public Item data = new Item();
     public ItemType type;
     public LocationTypes location;
     [TextArea(15, 20)]
     public string description;
-    //public int value;
-    public ItemBuff[] buffs;
 
     public Item CreateItem()
     {
@@ -41,8 +40,8 @@ public abstract class InventoryType : ScriptableObject
 public class Item
 {
     public string Name;
-    public int Id;
-    public ItemBuff[] buffs;
+    public int Id = -1;
+    //public ItemBuff[] buffs;
 
     public Item()
     {
@@ -52,19 +51,19 @@ public class Item
     public Item(InventoryType item)
     {
         Name = item.name;
-        Id = item.Id;
-        buffs = new ItemBuff[item.buffs.Length];
-        for (int i = 0; i < buffs.Length; i++)
-        {            
-            buffs[i] = new ItemBuff(item.buffs[i].min, item.buffs[i].max);
-            buffs[i].attribute = item.buffs[i].attribute;
-        }
+        Id = item.data.Id;
+        //buffs = new ItemBuff[item.data.buffs.Length];
+        //for (int i = 0; i < buffs.Length; i++)
+        //{            
+        //    buffs[i] = new ItemBuff(item.data.buffs[i].min, item.data.buffs[i].max);
+        //    buffs[i].attribute = item.data.buffs[i].attribute;
+        //}
     }
 }
 [System.Serializable]
 public class ItemBuff
 {
-    public Attributes attribute;
+    //public Attributes attribute;
     public int value;
     public int min;
     public int max;

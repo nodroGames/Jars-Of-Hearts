@@ -17,7 +17,6 @@ MonoBehaviour:
     Items:
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -25,7 +24,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -33,7 +31,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -41,7 +38,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -49,7 +45,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -57,7 +52,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -65,7 +59,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -73,7 +66,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -81,7 +73,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1
@@ -89,7 +80,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 00000000
       parent: {fileID: 0}
-      ID: -1
       item:
         Name: 
         Id: -1

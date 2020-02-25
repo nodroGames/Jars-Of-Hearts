@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: HalfRotHeart
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: f4dffe26cf732714190affed49465707, type: 3}
-  Id: 2
+  data:
+    Name: 
+    Id: 2
+    buffs:
+    - attribute: 1
+      value: 0
+      min: 0
+      max: 0
   type: 0
   location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: This has gone way to far. You better hurry and get what you can before
     it's complete mush.
-  buffs:
-  - attribute: 1
-    value: 1
-    min: 0
-    max: 0

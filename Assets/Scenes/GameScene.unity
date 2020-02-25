@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 17166049}
   - component: {fileID: 17166048}
   - component: {fileID: 17166050}
+  - component: {fileID: 17166051}
   m_Layer: 5
   m_Name: Fridge Screen
   m_TagString: Untagged
@@ -345,6 +346,20 @@ MonoBehaviour:
   - {fileID: 2006451744}
   - {fileID: 730124693}
   - {fileID: 651752508}
+--- !u!114 &17166051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17166046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!1 &37286215
 GameObject:
   m_ObjectHideFlags: 0
@@ -9046,6 +9061,7 @@ GameObject:
   - component: {fileID: 1731443543}
   - component: {fileID: 1731443542}
   - component: {fileID: 1731443544}
+  - component: {fileID: 1731443545}
   m_Layer: 5
   m_Name: InventoryScreen
   m_TagString: Untagged
@@ -9128,6 +9144,20 @@ MonoBehaviour:
   X_SPACE_BETWEEN_ITEM: 0
   NUMBER_OF_COLUMN: 1
   Y_SPACE_BETWEEN_ITEM: 70
+--- !u!114 &1731443545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731443540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!1 &1757047114
 GameObject:
   m_ObjectHideFlags: 0

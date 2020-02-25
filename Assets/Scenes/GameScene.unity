@@ -333,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091addffc38d26c43aa56264c179a38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8496383844834913040}
   inventory: {fileID: 11400000, guid: 5023a30239f251a49abb0a97b98d0ee4, type: 2}
   slots:
   - {fileID: 119552313}
@@ -786,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6708ab846e86af4198a9a48084ec078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 3aebb03a8c43f42448255668ac86c263, type: 2}
+  item: {fileID: 11400000, guid: 3631d6c447de64c47bbc0d0f15122dc7, type: 2}
 --- !u!61 &156963051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4505,7 +4504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6708ab846e86af4198a9a48084ec078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 88a698fe453b5c143a32af45fa0e7ea5, type: 2}
+  item: {fileID: 11400000, guid: 607bb0c75e8974e46953fe2fbfe7fea9, type: 2}
 --- !u!4 &600166059
 Transform:
   m_ObjectHideFlags: 0
@@ -4578,7 +4577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6708ab846e86af4198a9a48084ec078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 142e921f49cb88240b192ad234ca0ecf, type: 2}
+  item: {fileID: 11400000, guid: 3ba9ed46bcdaa1d4a8759ab2cef017eb, type: 2}
 --- !u!4 &609458292
 Transform:
   m_ObjectHideFlags: 0
@@ -8279,7 +8278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6708ab846e86af4198a9a48084ec078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 88a698fe453b5c143a32af45fa0e7ea5, type: 2}
+  item: {fileID: 11400000, guid: 607bb0c75e8974e46953fe2fbfe7fea9, type: 2}
 --- !u!4 &1491807273
 Transform:
   m_ObjectHideFlags: 0
@@ -9135,7 +9134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a2e893b4427984292f0a7a5f9cb5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8496383844834913040}
   inventory: {fileID: 11400000, guid: 07a80ec68c66aa04b92fd12df98f1d01, type: 2}
   inventoryPrefab: {fileID: 2556135785549315912, guid: d8d7b667c29520f4483bf6078b9ddd2d,
     type: 3}
@@ -12319,7 +12317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6708ab846e86af4198a9a48084ec078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 142e921f49cb88240b192ad234ca0ecf, type: 2}
+  item: {fileID: 11400000, guid: 3ba9ed46bcdaa1d4a8759ab2cef017eb, type: 2}
 --- !u!4 &2081214344
 Transform:
   m_ObjectHideFlags: 0
@@ -13512,6 +13510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 07a80ec68c66aa04b92fd12df98f1d01, type: 2}
+  fridge: {fileID: 11400000, guid: 5023a30239f251a49abb0a97b98d0ee4, type: 2}
 --- !u!114 &8496383844834913141
 MonoBehaviour:
   m_ObjectHideFlags: 0

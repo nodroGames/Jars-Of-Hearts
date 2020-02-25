@@ -12,65 +12,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef4fbb11c25450499f12d3921b00524, type: 3}
   m_Name: Fridge Inventory
   m_EditorClassIdentifier: 
-  savePath: 
+  savePath: /fridge.Save
   Container:
     Items:
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
       amount: 0
     - AllowedItems: 00000000
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1

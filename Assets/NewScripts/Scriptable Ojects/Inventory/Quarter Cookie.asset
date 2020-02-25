@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d9511cebb2714439179adde9473349, type: 3}
-  m_Name: QuarterRotCookie
+  m_Script: {fileID: 11500000, guid: 17382d8ccd8eb5146bac6f5b3e4af470, type: 3}
+  m_Name: Quarter Cookie
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  uiDisplay: {fileID: 0}
+  stackable: 0
+  data:
+    Name: 
+    Id: -1
   type: 1
-  description: You win some, you lose some. I'm just not exactly sure which one this
-    is.
-  value: 2
+  location: {fileID: 0}
+  description: 

@@ -18,7 +18,7 @@ public class InventoryObject : ScriptableObject
         if (EmptySlotCount <= 0)
             return false;
         InventorySlot slot = FindItemOnInventory(_item);
-        if(!database.GetItem[_item.Id].stackable || slot == null)
+        if(!database.Items[_item.Id].stackable || slot == null)
         {
             SetFirstEmptySlot(_item, _amount);
             return true;
@@ -122,7 +122,7 @@ public class Inventory
     {
         for (int i = 0; i < Items.Length; i++)
         {
-            Items[i].UpdateSlot(new Item(), 0);
+            Items[i].RemoveItem();
         }
     }
 }
@@ -131,6 +131,7 @@ public class Inventory
 public class InventorySlot
 {
     public ItemType[] AllowedItems = new ItemType[0];
+    [System.NonSerialized]
     public UserInterface parent;
     public Item item;
     public int amount;
@@ -141,7 +142,7 @@ public class InventorySlot
         {
             if (item.Id >= 0)
             {
-                return parent.inventory.database.GetItem[item.Id];
+                return parent.inventory.database.Items[item.Id];
             }
             return null;
         }
@@ -149,7 +150,7 @@ public class InventorySlot
 
     public InventorySlot()
     {
-        item = null;
+        item = new Item();
         amount = 0;
     }
     public InventorySlot(Item _item, int _amount)

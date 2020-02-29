@@ -787,6 +787,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3631d6c447de64c47bbc0d0f15122dc7, type: 2}
+  rotBaseTime: 60
+  currentRotTime: 0
+  floorTime: 1.5
+  inventoryTime: 0.5
+  fridgeTime: 0.25
 --- !u!61 &156963051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -832,7 +837,7 @@ GameObject:
   - component: {fileID: 180876643}
   - component: {fileID: 180876644}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4506,6 +4511,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 607bb0c75e8974e46953fe2fbfe7fea9, type: 2}
+  rotBaseTime: 60
+  currentRotTime: 0
+  floorTime: 1.5
+  inventoryTime: 0.5
+  fridgeTime: 0.25
 --- !u!4 &600166059
 Transform:
   m_ObjectHideFlags: 0
@@ -4579,6 +4589,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3ba9ed46bcdaa1d4a8759ab2cef017eb, type: 2}
+  rotBaseTime: 60
+  currentRotTime: 0
+  floorTime: 1.5
+  inventoryTime: 0.5
+  fridgeTime: 0.25
 --- !u!4 &609458292
 Transform:
   m_ObjectHideFlags: 0
@@ -8280,6 +8295,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 607bb0c75e8974e46953fe2fbfe7fea9, type: 2}
+  rotBaseTime: 60
+  currentRotTime: 0
+  floorTime: 1.5
+  inventoryTime: 0.5
+  fridgeTime: 0.25
 --- !u!4 &1491807273
 Transform:
   m_ObjectHideFlags: 0
@@ -12404,6 +12424,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3ba9ed46bcdaa1d4a8759ab2cef017eb, type: 2}
+  rotBaseTime: 60
+  currentRotTime: 0
+  floorTime: 1.5
+  inventoryTime: 0.5
+  fridgeTime: 0.25
 --- !u!4 &2081214344
 Transform:
   m_ObjectHideFlags: 0

@@ -17,6 +17,15 @@ public enum ProductState
     Mush
 }
 
+public enum InterfaceLocation
+{
+    Floor,
+    Inventory,
+    Fridge,
+    Oven,
+    Jar
+}
+
 [CreateAssetMenu(fileName = "New Item", menuName = "Scriptable Objects/Inventory System/Items")]
 public class InventoryType : ScriptableObject
 {
@@ -28,7 +37,8 @@ public class InventoryType : ScriptableObject
     public bool stackable;
     public Item data = new Item();
     public ProductType type;
-    public LocationTypes location;
+    public InterfaceLocation location;
+    //public LocationTypes location;
     [TextArea(15, 20)]
     public string description;
 

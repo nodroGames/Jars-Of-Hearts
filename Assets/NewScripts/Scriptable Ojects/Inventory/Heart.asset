@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17382d8ccd8eb5146bac6f5b3e4af470, type: 3}
-  m_Name: Healthy Heart
+  m_Name: Heart
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: 5d75f9fdd8c046244adc65fe5ff31a26, type: 3}
+  state: 0
   stackable: 0
   data:
     Name: 
-    Id: -1
+    Id: 3
   type: 0
   location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: 

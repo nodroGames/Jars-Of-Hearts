@@ -19,5 +19,5 @@ MonoBehaviour:
     Name: 
     Id: 6
   type: 0
-  location: {fileID: 0}
+  location: {fileID: 11400000, guid: f588bf7d0d657ab4bb364eaa5590f369, type: 2}
   description: 

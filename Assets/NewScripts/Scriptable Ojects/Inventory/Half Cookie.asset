@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Half Cookie
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 0}
+  state: 2
   stackable: 0
   data:
     Name: 

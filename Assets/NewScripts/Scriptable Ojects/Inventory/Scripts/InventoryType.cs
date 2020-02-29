@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType
+public enum ProductType
 {
     Heart,
     Cookie,
     Default
+}
+
+public enum ProductState
+{
+    Healthy,
+    QuarterRot,
+    HalfRot,
+    Mush
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Scriptable Objects/Inventory System/Items")]
@@ -16,9 +24,10 @@ public class InventoryType : ScriptableObject
     public Sprite uiDisplay;
 
     [Header("= Data =")]
+    public ProductState state;
     public bool stackable;
     public Item data = new Item();
-    public ItemType type;
+    public ProductType type;
     public LocationTypes location;
     [TextArea(15, 20)]
     public string description;

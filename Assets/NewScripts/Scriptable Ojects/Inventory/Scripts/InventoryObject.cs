@@ -142,7 +142,7 @@ public delegate void SlotUpdated(InventorySlot _slot); //reference to Inventory 
 [System.Serializable]
 public class InventorySlot
 {
-    public ItemType[] AllowedItems = new ItemType[0];
+    public ProductType[] AllowedItems = new ProductType[0];
     [System.NonSerialized]
     public UserInterface parent;
     [System.NonSerialized]

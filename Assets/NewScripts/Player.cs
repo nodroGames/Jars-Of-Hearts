@@ -36,8 +36,8 @@ public class Player : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
-        fridge.Container.Clear();
+        inventory.Clear();
+        fridge.Clear();
     }
 
 }

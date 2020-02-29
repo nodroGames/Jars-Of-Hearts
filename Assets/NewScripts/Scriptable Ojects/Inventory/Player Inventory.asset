@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePath: /inventory.Save
   Container:
-    Items:
+    Slots:
     - AllowedItems: 00000000
       item:
         Name: 

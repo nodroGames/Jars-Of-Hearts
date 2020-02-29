@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class DragWindow : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
-    [SerializeField]
     private RectTransform dragRectTransform;
-    [SerializeField]
     private Canvas canvas;
 
     private void Awake()

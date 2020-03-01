@@ -6,7 +6,30 @@ using UnityEngine;
 public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 {
     public InventoryType item;
-    //public LocationTypes location;
+    public InventoryType[] statesOfProduct;
+    public InterfaceLocations locationInterface;
+    private LocationTypes location;
+
+    public float currentRotRate;
+    public float currentProductValue;
+
+    public LocationTypes Location
+    {
+        get { return location; }
+        set
+        {
+            location = value;
+            ChangeLocationType();
+        }
+    }
+
+    private void ChangeLocationType()
+    {
+        locationInterface.SetRotRate(gameObject);
+        locationInterface.SetValue(gameObject);
+    }
+
+    public ItemDatabaseObject database;
 
     public void OnAfterDeserialize()
     {
@@ -15,9 +38,10 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 
     public void OnBeforeSerialize()
     {
-#if UNITY_EDITOR
         GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
-        EditorUtility.SetDirty(GetComponentInChildren<SpriteRenderer>());
+#if UNITY_EDITOR
+
+        //EditorUtility.SetDirty(GetComponentInChildren<SpriteRenderer>());
 #endif
     }
 
@@ -26,74 +50,66 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
     [SerializeField]
     private float currentRotTime;
     private float half = 0.50f;
-    private float quarter = 0.25f;
-
-    [SerializeField]
-    private float floorTime = 1.5f;
-    [SerializeField]
-    private float inventoryTime = 0.5f;
-    [SerializeField]
-    private float fridgeTime = 0.25f;
-
-    private Transform heartPool;
+    private float quarter = 0.75f;
+    private object heartStateType;
 
     private void Awake()
     {
-        heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
         currentRotTime = rotBaseTime;
+        item.uiDisplay = item.healthyHeartSprite;
+
         //location = item.location;
+    }
+
+    private void Start()
+    {
+        if (locationInterface != null)
+            Location = locationInterface.defaultLocationType;
     }
 
     private void Update()
     {
         rotOverTime();
-        //changeHeartState();
+        changeHeartState();
     }
 
     private void rotOverTime()
     {
         if (currentRotTime >= 0.00f)
         {
-            switch (item.location)
-            {
-                case InterfaceLocation.Floor:
-                    currentRotTime -= Time.deltaTime * floorTime;
-                    break;
-                case InterfaceLocation.Inventory:
-                    currentRotTime -= Time.deltaTime * inventoryTime;
-                    break;
-                case InterfaceLocation.Fridge:
-                    currentRotTime -= Time.deltaTime * fridgeTime;
-                    break;
-                case InterfaceLocation.Oven:
-                    print("Oven");
-                    break;
-                case InterfaceLocation.Jar:
-                    print("Jar");
-                    break;
-            }
+            currentRotTime -= Time.deltaTime * currentRotRate;
         }
     }
 
-
-    /*
-
-    
-
-    public Sprite HalfHeart;
-    public Sprite QuarterHeart;
-
-    //[SerializeField]
-    //private UIHeartControl uiHeartControlScript = null;
-
-    [SerializeField]
-    private GameObject heartItemUI;
-
-    public GameObject healthyHeartIconUI;
-    public GameObject halfRotHeartIconUI;
-    public GameObject quarterRotHeartIconUI;
-
-    */
+    private void changeHeartState()
+    {
+        if (currentRotTime <= rotBaseTime * 0)
+        {
+            heartStateType = statesOfProduct[3];
+            item = (InventoryType)heartStateType;
+        }
+        else if (currentRotTime <= rotBaseTime * half)
+        {
+            //this.gameObject.GetComponent<SpriteRenderer>().sprite = QuarterHeart;
+            heartStateType = statesOfProduct[2];
+            item = (InventoryType)heartStateType;
+            //heartItemUI = quarterRotHeartIconUI;
+        }
+        else if (currentRotTime <= rotBaseTime * quarter)
+        {
+            heartStateType = statesOfProduct[1];
+            item = (InventoryType)heartStateType;
+            //this.gameObject.GetComponent<SpriteRenderer>().sprite = HalfHeart;
+            // heartItemUI = halfRotHeartIconUI;
+        }
+        else
+        {
+            heartStateType = statesOfProduct[0];
+            item = (InventoryType)heartStateType;
+            //heartItemUI = healthyHeartIconUI;
+            //Debug.Log("We Have A Healthy Heart");
+        }
+    }
 
 
 }

@@ -7,15 +7,26 @@ public class Player : MonoBehaviour
     public InventoryObject inventory;
     public InventoryObject fridge;
 
+    //public LocationTypes inventoryLocation;
+
+    private Transform heartPool;
+
+    private void Awake()
+    {
+        heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
+    }    
+
     public void OnTriggerEnter2D(Collider2D other)
     {
-        var item = other.GetComponent<HeartItem>();
-        if (item)
+        var thisItem = other.GetComponent<HeartItem>();
+        if (thisItem)
         {
-            Item _item = new Item(item.item);
-            if (inventory.AddItem(_item, 1))
+            Item _item = new Item(thisItem.item);
+            if (inventory.AddItem(thisItem, _item, 1))
             {
-                Destroy(other.gameObject);
+                other.gameObject.transform.position = new Vector2(heartPool.position.x, heartPool.position.y);
+                //thisItem.Location = inventoryLocation;
+                //Destroy(other.gameObject);
             }
         }
     }

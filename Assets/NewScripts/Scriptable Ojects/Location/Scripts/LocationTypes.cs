@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "LocationTypes", menuName = "Scriptable Objects/Location Type")]
+[CreateAssetMenu(fileName = "LocationTypes", menuName = "Scriptable Objects/Location System/Types")]
 public class LocationTypes : ScriptableObject
 {
-    [SerializeField]
-    private float rotRate;
+
 }

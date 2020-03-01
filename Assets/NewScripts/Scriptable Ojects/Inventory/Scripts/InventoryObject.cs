@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEditor;
 using System.Runtime.Serialization;
+using System;
 
 public enum InterfaceType
 {
@@ -20,10 +21,11 @@ public class InventoryObject : ScriptableObject
     public string savePath;
     public ItemDatabaseObject database;
     public InterfaceType type;
+    public LocationTypes inventoryLocation;
     public Inventory Container;
     public InventorySlot[] GetSlots { get { return Container.Slots; } }
 
-    public bool AddItem(Item _item, int _amount)
+    public bool AddItem(HeartItem changeableItem, Item _item, int _amount)
     {
         if (EmptySlotCount <= 0 && !database.ItemObjects[_item.Id].stackable)
             return false;
@@ -31,9 +33,14 @@ public class InventoryObject : ScriptableObject
         if (!database.ItemObjects[_item.Id].stackable || slot == null)
         {
             SetFirstEmptySlot(_item, _amount);
+            changeableItem.Location = inventoryLocation;
+            Debug.Log(changeableItem.currentRotRate);
+            //database.ItemObjects[_item.Id].location = InterfaceLocation.Inventory;
+            //Debug.Log("Item Got Added and loction changed" + database.ItemObjects[_item.Id].location);
             return true;
         }
         slot.AddAmount(_amount);
+        changeableItem.Location = inventoryLocation;
         return true;
     }
 
@@ -153,6 +160,7 @@ public class InventorySlot
     public SlotUpdated OnBeforeUpdate;
     public Item item = new Item();
     public int amount;
+    public HeartItem changeableItem;
 
     public InventoryType ItemObject
     {

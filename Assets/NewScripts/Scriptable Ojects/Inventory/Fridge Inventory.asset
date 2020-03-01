@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Fridge Inventory
   m_EditorClassIdentifier: 
   savePath: /fridge.Save
+  database: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e, type: 2}
+  type: 1
+  inventoryLocation: {fileID: 11400000, guid: 27cc02be126a45f4890866f0ae57cdcc, type: 2}
   Container:
     Slots:
     - AllowedItems: 00000000
@@ -65,5 +68,3 @@ MonoBehaviour:
         Name: 
         Id: -1
       amount: 0
-  database: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e, type: 2}
-  type: 1

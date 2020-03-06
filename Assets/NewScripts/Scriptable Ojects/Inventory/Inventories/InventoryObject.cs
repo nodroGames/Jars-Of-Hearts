@@ -53,13 +53,15 @@ public class InventoryObject : ScriptableObject
             return false;
         if (!database.ItemObjects[_item.Id].stackable || slot == null)
         {
-            SetFirstEmptySlot(_item, _amount);
+            SetFirstEmptySlot(/*changeableItem, */_item, _amount);
             changeableItem.Location = inventoryLocation;
+            //changeableItem.ReadData();
             Debug.Log(changeableItem.currentRotRate);
             return true;
         }
         slot.AddAmount(_amount);
         changeableItem.Location = inventoryLocation;
+        //changeableItem.ReadData();
         return true;
     }
 
@@ -85,13 +87,13 @@ public class InventoryObject : ScriptableObject
         }
         return null;
     }
-    public InventorySlot SetFirstEmptySlot(Item _item, int _amount)
+    public InventorySlot SetFirstEmptySlot(/*HeartItem changeableItem, */Item _item, int _amount)
     {
         for (int i = 0; i < GetSlots.Length; i++)
         {
             if (GetSlots[i].item.Id <= -1)
             {
-                GetSlots[i].UpdateSlot(_item, _amount);
+                GetSlots[i].UpdateSlot(/*changeableItem, */_item, _amount);
                 return GetSlots[i];
             }
         }
@@ -104,8 +106,8 @@ public class InventoryObject : ScriptableObject
         if(item2.CanPlaceInSlot(item1.ItemObject) && item1.CanPlaceInSlot(item2.ItemObject))
         {
             InventorySlot tempSlot = new InventorySlot(item2.item, item2.amount);
-            item2.UpdateSlot(item1.item, item1.amount);
-            item1.UpdateSlot(tempSlot.item, tempSlot.amount);
+            item2.UpdateSlot(/*item1.changeableItem, */item1.item, item1.amount);
+            item1.UpdateSlot(/*tempSlot.changeableItem, */tempSlot.item, tempSlot.amount);
         }
     }
 
@@ -115,7 +117,7 @@ public class InventoryObject : ScriptableObject
         {
             if (GetSlots[i].item == _item)
             {
-                GetSlots[i].UpdateSlot(null, 0);
+                GetSlots[i].UpdateSlot(/*null, */null, 0);
             }
         }
     }
@@ -138,7 +140,7 @@ public class InventoryObject : ScriptableObject
             Inventory newContainer = (Inventory)formatter.Deserialize(stream);
             for (int i = 0; i < GetSlots.Length; i++)
             {
-                GetSlots[i].UpdateSlot(newContainer.Slots[i].item, newContainer.Slots[i].amount);
+                GetSlots[i].UpdateSlot(/*newContainer.Slots[i].changeableItem, */newContainer.Slots[i].item, newContainer.Slots[i].amount);
             }
             stream.Close();
         }
@@ -163,7 +165,7 @@ public class Inventory
     }
 }
 
-public delegate void SlotUpdated(InventorySlot _slot); //reference to Inventory Slot
+public delegate void SlotUpdated(/*HeartItem _changeableItem,*/ InventorySlot _slot); //reference to Inventory Slot
 
 [System.Serializable]
 public class InventorySlot
@@ -179,7 +181,7 @@ public class InventorySlot
     public SlotUpdated OnBeforeUpdate;
     public Item item = new Item();
     public int amount;
-    public HeartItem changeableItem;
+    //public HeartItem changeableItem;
 
     public InventoryType ItemObject
     {
@@ -195,28 +197,29 @@ public class InventorySlot
 
     public InventorySlot()
     {
-        UpdateSlot(new Item(), 0);
+        UpdateSlot(/*new HeartItem(), */new Item(), 0);
     }
     public InventorySlot(Item _item, int _amount)
     {
-        UpdateSlot(_item, _amount);
+        UpdateSlot(/*changeableItem, */_item, _amount);
     }
-    public void UpdateSlot(Item _item, int _amount)
+    public void UpdateSlot(/*HeartItem _changeableItem, */Item _item, int _amount)
     {
         if (OnBeforeUpdate != null)
             OnBeforeUpdate.Invoke(this);
         item = _item;
         amount = _amount;
+        //changeableItem = _changeableItem;
         if (OnAfterUpdate != null)
             OnAfterUpdate.Invoke(this);
     }
     public void RemoveItem()
     {
-        UpdateSlot(new Item(), 0);
+        UpdateSlot(/*new HeartItem(), */new Item(), 0);
     }
     public void AddAmount(int value)
     {
-        UpdateSlot(item, amount += value);
+        UpdateSlot(/*changeableItem, */item, amount += value);
     }
     public bool CanPlaceInSlot(InventoryType _itemObject)
     {

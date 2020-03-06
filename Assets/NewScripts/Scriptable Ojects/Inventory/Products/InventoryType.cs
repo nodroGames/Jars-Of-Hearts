@@ -31,9 +31,9 @@ public class InventoryType : ScriptableObject
 {
     [Header("= Visuals =")]
     public Sprite uiDisplay;
-    public Sprite healthyHeartSprite;
-    public Sprite quarterHeartSprite;
-    public Sprite halfHeartSprite;
+    //public Sprite healthyHeartSprite;
+    //public Sprite quarterHeartSprite;
+    //public Sprite halfHeartSprite;
 
     [Header("= Data =")]
     public ProductState state;

@@ -34,15 +34,15 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-       
+        
     }
 
     public void OnBeforeSerialize()
     {
-        GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
-#if UNITY_EDITOR
 
-        //EditorUtility.SetDirty(GetComponentInChildren<SpriteRenderer>());
+#if UNITY_EDITOR
+        GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
+        EditorUtility.SetDirty(GetComponentInChildren<SpriteRenderer>());
 #endif
     }
 
@@ -89,28 +89,37 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
         {
             heartStateType = statesOfProduct[3];
             item = (InventoryType)heartStateType;
+            ReadData();
+
+
         }
         else if (currentRotTime <= rotBaseTime * half)
         {
-            //this.gameObject.GetComponent<SpriteRenderer>().sprite = QuarterHeart;
             heartStateType = statesOfProduct[2];
             item = (InventoryType)heartStateType;
-            //heartItemUI = quarterRotHeartIconUI;
+            ReadData();
+
         }
         else if (currentRotTime <= rotBaseTime * quarter)
         {
             heartStateType = statesOfProduct[1];
             item = (InventoryType)heartStateType;
-            //this.gameObject.GetComponent<SpriteRenderer>().sprite = HalfHeart;
-            // heartItemUI = halfRotHeartIconUI;
+            ReadData();
+
         }
         else
         {
             heartStateType = statesOfProduct[0];
             item = (InventoryType)heartStateType;
-            //heartItemUI = healthyHeartIconUI;
+            ReadData();
+
             //Debug.Log("We Have A Healthy Heart");
         }
+    }
+
+    private void ReadData()
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
     }
 
 

@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
     public InventoryObject fridge;
+       
+    [SerializeField]
+    private HeartInSlot heartInSlotScript = null;
+    public InventorySlot _slot;
 
     //public LocationTypes inventoryLocation;
 
@@ -26,6 +30,11 @@ public class Player : MonoBehaviour
             {
                 other.gameObject.transform.position = new Vector2(heartPool.position.x, heartPool.position.y);
                 //thisItem.Location = inventoryLocation;
+                heartInSlotScript = _slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<HeartInSlot>();
+                heartInSlotScript.SetHeartUI(thisItem.Location, thisItem.item, thisItem.currentRotTime);
+                //uiHeartControlScript = inventory.heartSlots[i].GetComponent<UIHeartControl>();
+                //uiHeartControlScript.SetHeartUI(locationType, heartStateType, currentRotTime);
+
                 //Destroy(other.gameObject);
             }
         }

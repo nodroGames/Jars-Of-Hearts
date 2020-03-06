@@ -48,8 +48,8 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 
     [SerializeField]
     private float rotBaseTime = 60.0f;
-    [SerializeField]
-    private float currentRotTime;
+
+    public float currentRotTime;
     private float half = 0.50f;
     private float quarter = 0.75f;
     private object heartStateType;
@@ -117,7 +117,7 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
         }
     }
 
-    private void ReadData()
+    public void ReadData()
     {
         GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
     }

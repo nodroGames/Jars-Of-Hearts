@@ -25,18 +25,37 @@ public class InventoryObject : ScriptableObject
     public Inventory Container;
     public InventorySlot[] GetSlots { get { return Container.Slots; } }
 
+    //public bool AddItem(HeartItem changeableItem, Item _item, int _amount)
+    //{
+    //    if (EmptySlotCount <= 0 && !database.ItemObjects[_item.Id].stackable)
+    //        return false;
+    //    InventorySlot slot = FindItemOnInventory(_item);
+    //    if (!database.ItemObjects[_item.Id].stackable || slot == null)
+    //    {
+    //        SetFirstEmptySlot(_item, _amount);
+    //        changeableItem.Location = inventoryLocation;
+    //        Debug.Log(changeableItem.currentRotRate);
+    //        //database.ItemObjects[_item.Id].location = InterfaceLocation.Inventory;
+    //        //Debug.Log("Item Got Added and loction changed" + database.ItemObjects[_item.Id].location);
+    //        return true;
+    //    }
+    //    slot.AddAmount(_amount);
+    //    changeableItem.Location = inventoryLocation;
+    //    return true;
+    //}
+
     public bool AddItem(HeartItem changeableItem, Item _item, int _amount)
     {
         if (EmptySlotCount <= 0 && !database.ItemObjects[_item.Id].stackable)
             return false;
         InventorySlot slot = FindItemOnInventory(_item);
+        if (EmptySlotCount <= 0 && slot == null && database.ItemObjects[_item.Id].stackable)
+            return false;
         if (!database.ItemObjects[_item.Id].stackable || slot == null)
         {
             SetFirstEmptySlot(_item, _amount);
             changeableItem.Location = inventoryLocation;
             Debug.Log(changeableItem.currentRotRate);
-            //database.ItemObjects[_item.Id].location = InterfaceLocation.Inventory;
-            //Debug.Log("Item Got Added and loction changed" + database.ItemObjects[_item.Id].location);
             return true;
         }
         slot.AddAmount(_amount);

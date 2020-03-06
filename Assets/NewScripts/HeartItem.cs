@@ -9,6 +9,7 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
     public InventoryType[] statesOfProduct;
     public InterfaceLocations locationInterface;
     private LocationTypes location;
+    private SpriteRenderer currentHeartImage;
 
     public float currentRotRate;
     public float currentProductValue;
@@ -33,7 +34,7 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-        
+       
     }
 
     public void OnBeforeSerialize()
@@ -56,7 +57,8 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
     private void Awake()
     {
         currentRotTime = rotBaseTime;
-        item.uiDisplay = item.healthyHeartSprite;
+        //currentHeartImage = this.sprit
+        //item.uiDisplay = item.healthyHeartSprite;
 
         //location = item.location;
     }

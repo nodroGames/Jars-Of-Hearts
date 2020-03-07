@@ -6,36 +6,40 @@ public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
     public InventoryObject fridge;
-       
-    [SerializeField]
-    private HeartInSlot heartInSlotScript = null;
-    public InventorySlot _slot;
 
-    //public LocationTypes inventoryLocation;
+    //[SerializeField]
+
+    public UserInterface _inventorySlot;
 
     private Transform heartPool;
 
     private void Awake()
     {
         heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
+
+        
     }    
 
     public void OnTriggerEnter2D(Collider2D other)
-    {
-        var thisItem = other.GetComponent<HeartItem>();
+    {       
+        HeartItem thisItem = other.GetComponent<HeartItem>();
+
         if (thisItem)
         {
+            InventoryType productSO = thisItem.item;
+            LocationTypes location = thisItem.Location;
+            float currentRotTime = thisItem.currentRotTime;
+            
             Item _item = new Item(thisItem.item);
-            if (inventory.AddItem(thisItem, _item, 1))
-            {
-                other.gameObject.transform.position = new Vector2(heartPool.position.x, heartPool.position.y);
-                //thisItem.Location = inventoryLocation;
-                heartInSlotScript = _slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<HeartInSlot>();
-                heartInSlotScript.SetHeartUI(thisItem.Location, thisItem.item, thisItem.currentRotTime);
-                //uiHeartControlScript = inventory.heartSlots[i].GetComponent<UIHeartControl>();
-                //uiHeartControlScript.SetHeartUI(locationType, heartStateType, currentRotTime);
 
-                //Destroy(other.gameObject);
+            if (inventory.AddItem(_item, 1, location, productSO, currentRotTime))
+            {
+                //other.gameObject.transform.position = new Vector2(heartPool.position.x, heartPool.position.y);                
+                
+
+                //_heartInSlotScript.SetHeartUI(thisItem.Location, thisItem.item, thisItem.currentRotTime);
+
+                Destroy(other.gameObject);
             }
         }
     }

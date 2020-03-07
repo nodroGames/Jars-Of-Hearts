@@ -7,23 +7,24 @@ using UnityEditor;
 using System.Runtime.Serialization;
 using System;
 
-public enum InterfaceType
-{
-    Inventory,
-    Fridge,
-    Oven,
-    Trash
-}
+//public enum InterfaceType
+//{
+//    Inventory,
+//    Fridge,
+//    Oven,
+//    Trash
+//}
 
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Scriptable Objects/Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
     public string savePath;
     public ItemDatabaseObject database;
-    public InterfaceType type;
-    public LocationTypes inventoryLocation;
+    //public InterfaceType type;
+    public LocationTypes Location;
     public Inventory Container;
     public InventorySlot[] GetSlots { get { return Container.Slots; } }
+
 
     //public bool AddItem(HeartItem changeableItem, Item _item, int _amount)
     //{
@@ -44,7 +45,7 @@ public class InventoryObject : ScriptableObject
     //    return true;
     //}
 
-    public bool AddItem(HeartItem changeableItem, Item _item, int _amount)
+    public bool AddItem(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime)
     {
         if (EmptySlotCount <= 0 && !database.ItemObjects[_item.Id].stackable)
             return false;
@@ -53,15 +54,11 @@ public class InventoryObject : ScriptableObject
             return false;
         if (!database.ItemObjects[_item.Id].stackable || slot == null)
         {
-            SetFirstEmptySlot(/*changeableItem, */_item, _amount);
-            changeableItem.Location = inventoryLocation;
-            //changeableItem.ReadData();
-            Debug.Log(changeableItem.currentRotRate);
+            SetFirstEmptySlot(_item, _amount, _location, _productSO, _currentRotTime);
+            //_location = Location;
             return true;
         }
         slot.AddAmount(_amount);
-        changeableItem.Location = inventoryLocation;
-        //changeableItem.ReadData();
         return true;
     }
 
@@ -87,13 +84,13 @@ public class InventoryObject : ScriptableObject
         }
         return null;
     }
-    public InventorySlot SetFirstEmptySlot(/*HeartItem changeableItem, */Item _item, int _amount)
+    public InventorySlot SetFirstEmptySlot(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime)
     {
         for (int i = 0; i < GetSlots.Length; i++)
         {
             if (GetSlots[i].item.Id <= -1)
             {
-                GetSlots[i].UpdateSlot(/*changeableItem, */_item, _amount);
+                GetSlots[i].UpdateSlot(_item, _amount, _location, _productSO, _currentRotTime);
                 return GetSlots[i];
             }
         }
@@ -105,19 +102,19 @@ public class InventoryObject : ScriptableObject
     {
         if(item2.CanPlaceInSlot(item1.ItemObject) && item1.CanPlaceInSlot(item2.ItemObject))
         {
-            InventorySlot tempSlot = new InventorySlot(item2.item, item2.amount);
-            item2.UpdateSlot(/*item1.changeableItem, */item1.item, item1.amount);
-            item1.UpdateSlot(/*tempSlot.changeableItem, */tempSlot.item, tempSlot.amount);
+            InventorySlot tempSlot = new InventorySlot(item2.item, item2.amount, item2.location, item2.productSO, item2.currentRotTime);
+            item2.UpdateSlot(item1.item, item1.amount, item1.location, item1.productSO, item1.currentRotTime);
+            item1.UpdateSlot(tempSlot.item, tempSlot.amount, tempSlot.location, tempSlot.productSO, tempSlot.currentRotTime);
         }
     }
 
-    public void RemoveItem(Item _item)
+    public void RemoveItem(Item _item, LocationTypes _location, InventoryType _productSO, float _currentRotTime)
     {
         for (int i = 0; i < GetSlots.Length; i++)
         {
             if (GetSlots[i].item == _item)
             {
-                GetSlots[i].UpdateSlot(/*null, */null, 0);
+                GetSlots[i].UpdateSlot(null, 0, null, null, 0);
             }
         }
     }
@@ -138,9 +135,10 @@ public class InventoryObject : ScriptableObject
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
             Inventory newContainer = (Inventory)formatter.Deserialize(stream);
+
             for (int i = 0; i < GetSlots.Length; i++)
             {
-                GetSlots[i].UpdateSlot(/*newContainer.Slots[i].changeableItem, */newContainer.Slots[i].item, newContainer.Slots[i].amount);
+                GetSlots[i].UpdateSlot(newContainer.Slots[i].item, newContainer.Slots[i].amount, newContainer.Slots[i].location, newContainer.Slots[i].productSO, newContainer.Slots[i].currentRotTime);
             }
             stream.Close();
         }
@@ -165,7 +163,7 @@ public class Inventory
     }
 }
 
-public delegate void SlotUpdated(/*HeartItem _changeableItem,*/ InventorySlot _slot); //reference to Inventory Slot
+public delegate void SlotUpdated(InventorySlot _slot); //reference to Inventory Slot
 
 [System.Serializable]
 public class InventorySlot
@@ -181,7 +179,9 @@ public class InventorySlot
     public SlotUpdated OnBeforeUpdate;
     public Item item = new Item();
     public int amount;
-    //public HeartItem changeableItem;
+    public LocationTypes location;
+    public InventoryType productSO;
+    public float currentRotTime;
 
     public InventoryType ItemObject
     {
@@ -197,29 +197,32 @@ public class InventorySlot
 
     public InventorySlot()
     {
-        UpdateSlot(/*new HeartItem(), */new Item(), 0);
+        UpdateSlot(new Item(), 0, location, productSO, currentRotTime);
     }
-    public InventorySlot(Item _item, int _amount)
+    public InventorySlot(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime)
     {
-        UpdateSlot(/*changeableItem, */_item, _amount);
+        UpdateSlot(_item, _amount, _location, _productSO, _currentRotTime);
     }
-    public void UpdateSlot(/*HeartItem _changeableItem, */Item _item, int _amount)
+    public void UpdateSlot(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime)
     {
         if (OnBeforeUpdate != null)
             OnBeforeUpdate.Invoke(this);
         item = _item;
         amount = _amount;
-        //changeableItem = _changeableItem;
+        location = _location;
+        productSO = _productSO;
+        currentRotTime = _currentRotTime;
+
         if (OnAfterUpdate != null)
             OnAfterUpdate.Invoke(this);
     }
     public void RemoveItem()
     {
-        UpdateSlot(/*new HeartItem(), */new Item(), 0);
+        UpdateSlot(new Item(), 0, null, null, 0);
     }
     public void AddAmount(int value)
     {
-        UpdateSlot(/*changeableItem, */item, amount += value);
+        UpdateSlot(item, amount += value, location, productSO, currentRotTime);
     }
     public bool CanPlaceInSlot(InventoryType _itemObject)
     {

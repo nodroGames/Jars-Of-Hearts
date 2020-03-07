@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7866637671293392671}
-  - component: {fileID: 7866637671293392670}
+  - component: {fileID: 1602019280568227296}
   - component: {fileID: 7866637671293392668}
   m_Layer: 0
   m_Name: Product
@@ -146,7 +146,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7866637671293392670
+--- !u!114 &1602019280568227296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,8 +168,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9df1ceea034f3345b7324f64e6ec71f, type: 2}
   - {fileID: 11400000, guid: e30f44c40f76dfb4ba47dcd9e998eba9, type: 2}
   locationInterface: {fileID: 11400000, guid: f1cbcbff254585f4b821538fe579c556, type: 2}
+  healthSystem: {fileID: 11400000, guid: 9c572f78234639948988975590b40651, type: 2}
+  healthy: {fileID: 11400000, guid: 4e78b68278dd0a145a4dea5f16dd4b02, type: 2}
+  quarterRot: {fileID: 11400000, guid: addd4f96115da3249b92aa587c3864a8, type: 2}
+  halfRot: {fileID: 11400000, guid: a969d929956c51c4ebc2744f235cb683, type: 2}
+  mush: {fileID: 11400000, guid: 0b3de6b5fc62eb24db407d041b68de52, type: 2}
   currentRotRate: 0
   currentProductValue: 0
+  healthState: {fileID: 0}
+  location: {fileID: 0}
   database: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e, type: 2}
   rotBaseTime: 60
   currentRotTime: 0

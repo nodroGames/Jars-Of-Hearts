@@ -6,13 +6,36 @@ using UnityEngine;
 public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 {
     public InventoryType item;
-    public InventoryType[] statesOfProduct;
-    public InterfaceLocations locationInterface;
-    private LocationTypes location;
-    private SpriteRenderer currentHeartImage;
 
+    public InterfaceLocations locationInterface;
+    public HealthStateSystem healthSystem;
+
+    public EnumValue healthy;
+    public EnumValue quarterRot;
+    public EnumValue halfRot;
+    public EnumValue mush;
+    
     public float currentRotRate;
     public float currentProductValue;
+
+    private EnumValue healthState;
+
+    public EnumValue HealthState
+    {
+        get { return healthState; }
+        set
+        {
+            healthState = value;
+            changeHealthState();
+        }
+    }
+
+    private void changeHealthState()
+    {
+        healthSystem.SetHeartState(gameObject);
+    }
+
+    private LocationTypes location;
 
     public LocationTypes Location
     {
@@ -20,11 +43,11 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
         set
         {
             location = value;
-            ChangeLocationType();
+            changeLocationType();
         }
     }
 
-    private void ChangeLocationType()
+    private void changeLocationType()
     {
         locationInterface.SetRotRate(gameObject);
         locationInterface.SetValue(gameObject);
@@ -34,16 +57,12 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-        
+
     }
 
     public void OnBeforeSerialize()
     {
-
-#if UNITY_EDITOR
         GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
-        EditorUtility.SetDirty(GetComponentInChildren<SpriteRenderer>());
-#endif
     }
 
     [SerializeField]
@@ -52,27 +71,25 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
     public float currentRotTime;
     private float half = 0.50f;
     private float quarter = 0.75f;
-    private object heartStateType;
+    public object heartStateType;
 
     private void Awake()
     {
         currentRotTime = rotBaseTime;
-        //currentHeartImage = this.sprit
-        //item.uiDisplay = item.healthyHeartSprite;
-
-        //location = item.location;
     }
 
     private void Start()
     {
         if (locationInterface != null)
             Location = locationInterface.defaultLocationType;
+
+        if (healthSystem != null)
+            HealthState = healthSystem.defaultHealthStateType;
     }
 
     private void Update()
     {
         rotOverTime();
-        changeHeartState();
     }
 
     private void rotOverTime()
@@ -81,13 +98,10 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
         {
             currentRotTime -= Time.deltaTime * currentRotRate;
         }
-    }
 
-    private void changeHeartState()
-    {
         if (currentRotTime <= rotBaseTime * 0)
         {
-            heartStateType = statesOfProduct[3];
+            HealthState = mush;
             item = (InventoryType)heartStateType;
             ReadData();
 
@@ -95,27 +109,26 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
         }
         else if (currentRotTime <= rotBaseTime * half)
         {
-            heartStateType = statesOfProduct[2];
+            HealthState = halfRot;
             item = (InventoryType)heartStateType;
             ReadData();
 
         }
         else if (currentRotTime <= rotBaseTime * quarter)
         {
-            heartStateType = statesOfProduct[1];
+            HealthState = quarterRot;
             item = (InventoryType)heartStateType;
             ReadData();
 
         }
         else
         {
-            heartStateType = statesOfProduct[0];
+            HealthState = healthy;
             item = (InventoryType)heartStateType;
             ReadData();
-
-            //Debug.Log("We Have A Healthy Heart");
         }
     }
+    
 
     public void ReadData()
     {

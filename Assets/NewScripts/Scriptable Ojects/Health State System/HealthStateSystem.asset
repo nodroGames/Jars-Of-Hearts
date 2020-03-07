@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ad10819e90e3d479f5c68c4fa5ee82, type: 3}
+  m_Name: HealthStateSystem
+  m_EditorClassIdentifier: 
+  details:
+  - type: {fileID: 11400000, guid: 4e78b68278dd0a145a4dea5f16dd4b02, type: 2}
+    heartProductSO: {fileID: 11400000, guid: 3631d6c447de64c47bbc0d0f15122dc7, type: 2}
+    cookieProductSO: {fileID: 11400000, guid: eabb053f32ecf8f438484cb062a0aed0, type: 2}
+  - type: {fileID: 11400000, guid: addd4f96115da3249b92aa587c3864a8, type: 2}
+    heartProductSO: {fileID: 11400000, guid: 3ba9ed46bcdaa1d4a8759ab2cef017eb, type: 2}
+    cookieProductSO: {fileID: 11400000, guid: d9df1ceea034f3345b7324f64e6ec71f, type: 2}
+  - type: {fileID: 11400000, guid: a969d929956c51c4ebc2744f235cb683, type: 2}
+    heartProductSO: {fileID: 11400000, guid: 607bb0c75e8974e46953fe2fbfe7fea9, type: 2}
+    cookieProductSO: {fileID: 11400000, guid: e30f44c40f76dfb4ba47dcd9e998eba9, type: 2}
+  - type: {fileID: 11400000, guid: 0b3de6b5fc62eb24db407d041b68de52, type: 2}
+    heartProductSO: {fileID: 11400000, guid: 6634a822354bc3443b08b4e3ba870c12, type: 2}
+    cookieProductSO: {fileID: 11400000, guid: 6634a822354bc3443b08b4e3ba870c12, type: 2}
+  defaultHealthStateType: {fileID: 11400000, guid: 4e78b68278dd0a145a4dea5f16dd4b02,
+    type: 2}

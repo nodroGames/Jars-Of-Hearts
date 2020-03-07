@@ -41,7 +41,7 @@ public class InterfaceLocations : ScriptableObject
     }
 }
 
-[Serializable]
+[System.Serializable]
 public class LocationDetails
 {
     public LocationTypes type;

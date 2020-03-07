@@ -2285,11 +2285,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Product
       objectReference: {fileID: 0}
-    - target: {fileID: 7866637671293392670, guid: c8310dfcb3bde1f40871784082cf9260,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7866637671293392671, guid: c8310dfcb3bde1f40871784082cf9260,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12743,7 +12738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentInterObj: {fileID: 0}
   currentInterObjScript: {fileID: 0}
-  inventory: {fileID: 8496383844834913141}
+  inventory: {fileID: 0}
   pauseDialogue: {fileID: 1022067171}
 --- !u!114 &8496383844834913035
 MonoBehaviour:
@@ -12781,7 +12776,6 @@ GameObject:
   - component: {fileID: 8496383844834913040}
   - component: {fileID: 8496383844834913035}
   - component: {fileID: 8496383844834913034}
-  - component: {fileID: 8496383844834913141}
   - component: {fileID: 8496383844834913037}
   m_Layer: 0
   m_Name: Player
@@ -12854,46 +12848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 07a80ec68c66aa04b92fd12df98f1d01, type: 2}
   fridge: {fileID: 11400000, guid: 5023a30239f251a49abb0a97b98d0ee4, type: 2}
-  heartInSlotScript: {fileID: 0}
-  inventoryLocation: {fileID: 0}
---- !u!114 &8496383844834913141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496383844834913036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b462cc47d921849910454cd6c84ceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cookieInventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  heartInventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  heartSlots:
-  - {fileID: 2112041583}
-  - {fileID: 1122428730}
-  - {fileID: 274582658}
-  - {fileID: 237027659}
-  heartIsFull: 00000000
-  cookieIsEmpty: 1
+  _inventorySlot: {fileID: 1731443544}
 --- !u!4 &8496383844939961976
 Transform:
   m_ObjectHideFlags: 0

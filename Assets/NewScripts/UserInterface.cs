@@ -12,6 +12,7 @@ public abstract class UserInterface : MonoBehaviour
 
     public InventoryObject inventory;
     public Dictionary<GameObject, InventorySlot> slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
+
     void Start()
     {
         for (int i = 0; i < inventory.GetSlots.Length; i++)
@@ -29,10 +30,15 @@ public abstract class UserInterface : MonoBehaviour
     {
         if (_slot.item.Id >= 0)
         {
+            //_slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _slot.productSO.uiDisplay;
             _slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _slot.ItemObject.uiDisplay;
             _slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
             _slot.slotDisplay.transform.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = _slot.amount == 1 ? "" : _slot.amount.ToString("n0");
+            _slot.location = inventory.Location;
+            Debug.Log("This is the current SO " + _slot.productSO);
+            Debug.Log("This is the current location " + _slot.location);
+            Debug.Log("This is the current rot time " + _slot.currentRotTime);
         }
         else
         {

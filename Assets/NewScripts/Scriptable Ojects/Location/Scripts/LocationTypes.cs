@@ -5,5 +5,5 @@
 [System.Serializable]
 public class LocationTypes : ScriptableObject
 {
-
+    public float rotRate;
 }

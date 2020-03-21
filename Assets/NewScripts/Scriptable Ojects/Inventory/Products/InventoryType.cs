@@ -9,13 +9,13 @@ public enum ProductType
     Default
 }
 
-public enum ProductState
-{
-    Healthy,
-    QuarterRot,
-    HalfRot,
-    Mush
-}
+//public enum ProductState
+//{
+//    Healthy,
+//    QuarterRot,
+//    HalfRot,
+//    Mush
+//}
 
 //public enum InterfaceLocation
 //{
@@ -33,7 +33,7 @@ public class InventoryType : ScriptableObject
     public Sprite uiDisplay;
 
     [Header("= Data =")]
-    public ProductState state;
+    //public ProductState state;
     public bool stackable;
     public Item data = new Item();
     public ProductType type;

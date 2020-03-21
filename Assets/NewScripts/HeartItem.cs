@@ -73,9 +73,12 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
     private float quarter = 0.75f;
     public object heartStateType;
 
+    public Animator anim;
+
     private void Awake()
     {
         currentRotTime = rotBaseTime;
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -103,6 +106,7 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
         {
             HealthState = mush;
             item = (InventoryType)heartStateType;
+            anim.enabled = false;
             ReadData();
 
 

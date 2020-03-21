@@ -12,34 +12,20 @@ public abstract class UserInterface : MonoBehaviour
 
     public InventoryObject inventory;
     public Dictionary<GameObject, InventorySlot> slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
-
-    public List<LocationTypes> listOfLocations;
-
-    //public List<Sprite> listOfProductImages;
-
+    
     public List<InventoryType> listOfProducts;
 
-    //[SerializeField]
-    //private ProductInSlot slotScript;
-
-    private InventorySlot tempSlot;
-
-    private LocationTypes tempLocation;
-
     private int rotBaseTime;
-    private float tempRotTime;
-    private float tempRotRate;
+
     private float half;
     private float quarter;
-    private float tempRotStartTime;
-    
+
 
     private void Awake()
     {
         rotBaseTime = 60;
         half = 0.50f;
         quarter = 0.75f;
-        tempRotStartTime = 0.01f;
     }
 
     void Start()
@@ -58,132 +44,80 @@ public abstract class UserInterface : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        findRotRate();
-        rotOverTime();
+        swapProductState();
     }
 
-    private void findRotRate()
+    private void swapProductState()
     {
-        if (tempLocation != null)
-        {
-            if (tempLocation == listOfLocations[0])
-            {
-                tempRotRate = 1.5f;
-            }
-            if (tempLocation == listOfLocations[1])
-            {
-                tempRotRate = 0.5f;
-            }
-            if (tempLocation == listOfLocations[2])
-            {
-                tempRotRate = .25f;
-            }
-            if (tempLocation == listOfLocations[3])
-            {
-                tempRotRate = 0f;
-            }
-            if (tempLocation == listOfLocations[4])
-            {
-                tempRotRate = 0f;
-            }
-        }
-    }
-
-    private void rotOverTime()
-    {
-        //.item.Id >= 0 /
-
-        if (tempSlot != null && tempRotTime > tempRotStartTime)
-        {
             foreach (KeyValuePair<GameObject, InventorySlot> obj in slotsOnInterface)
             {
-                if (obj.Value.currentRotTime > 0.00f)
-                {    
-                    obj.Value.currentRotTime -= Time.deltaTime * tempRotRate;
-                }
-
+            if (obj.Value.item.Id >= 0)
+            {
+                // Mush State
                 if (obj.Value.currentRotTime <= rotBaseTime * 0)
                 {
                     obj.Value.ItemObject = listOfProducts[3];
-                    //tempSlot.productSO = listOfProducts[3];
-                    //HealthState = mush;
-                    //item = (InventoryType)heartStateType;
-                    //ReadData();
-                }
-                else if (obj.Value.currentRotTime <= rotBaseTime * half)
-                {
-                    obj.Value.ItemObject = listOfProducts[2];
-                    //slotsOnInterface[obj].ItemObject.uiDisplay
-                    //tempSlot.productSO = listOfProducts[2];
-                    //HealthState = halfRot;
-                    //item = (InventoryType)heartStateType;
-                    //ReadData();
-
-
-                }
-                else if (obj.Value.currentRotTime <= rotBaseTime * quarter)
-                {
-                    obj.Value.ItemObject = listOfProducts[1];
-                    //obj.Value.productSO = listOfProducts[1];
-                    obj.Value.item = listOfProducts[1].data;
-                    //Item _item = new Item(obj.Value.ItemObject);
-                    
+                    obj.Value.item = listOfProducts[3].data;
 
                     obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
-                    //tempSlot.productSO = listOfProducts[1];
 
-                   
-                    Debug.Log("should be quarter brown " + obj.Value.ItemObject);
-                    //OnSlotUpdate(tempSlot);
-
-                    //Item _item = new Item(tempSlot.productSO);
-
-                    //tempSlot.slotDisplay.GetComponentInChildren<Image>().sprite = listOfProductImages[1];
-                    //HealthState = quarterRot;
-                    //item = (InventoryType)heartStateType;
-                    //ReadData();
+                    obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = false;
                 }
+
+                //half rot state
+                else if (obj.Value.currentRotTime <= rotBaseTime * half)
+                {
+                    if (obj.Value.currentRotTime > 0.00f)
+                    {
+                        obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
+                    }
+                    else { return; }
+
+                    obj.Value.ItemObject = listOfProducts[2];
+                    obj.Value.item = listOfProducts[2].data;
+
+                    obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
+                }
+
+                //quarter rot state
+                else if (obj.Value.currentRotTime <= rotBaseTime * quarter)
+                {
+                    if (obj.Value.currentRotTime > 0.00f)
+                    {
+                        obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
+                    }
+                    else { return; }
+
+                    obj.Value.ItemObject = listOfProducts[1];
+                    obj.Value.item = listOfProducts[1].data;
+
+                    obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
+                }
+
+                // healthy heart state
                 else
                 {
-                    return;
+                    if (obj.Value.currentRotTime > 0.00f)
+                    {
+                        obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
+                    }
+                    else { return; }
                 }
-            }            
+            }
         }
     }
 
     private void OnSlotUpdate(InventorySlot _slot)
     {
-        foreach (KeyValuePair<GameObject, InventorySlot> obj in slotsOnInterface)
-        {
-            tempSlot = _slot;
-            tempRotTime = _slot.currentRotTime;
-            tempRotRate = _slot.currentRotRate;
-            //Debug.Log(_slot.ItemObject);
-        }
-
         if (_slot.item.Id >= 0)
         {
-            //_slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _slot.productSO.uiDisplay;
             _slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _slot.ItemObject.uiDisplay;
             _slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
             _slot.slotDisplay.transform.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = _slot.amount == 1 ? "" : _slot.amount.ToString("n0");
-            //slotScript = _slot.slotDisplay.GetComponent<ProductInSlot>();
             _slot.location = inventory.Location;
-            tempLocation = _slot.location;
-            //slotScript.SetHeartUI(_slot.currentRotTime, _slot.location);
-            //_slot.RotOverTime();
-            //_slot.currentRotTime = ProductInSlot.curr
-            //Debug.Log("This is the current SO " + _slot.productSO);
-            //Debug.Log("This is the current location " + _slot.location);
-            //Debug.Log("This is the current rot time " + _slot.currentRotTime);
-            //rotOverTime(_slot);
-            //while (_slot.currentRotTime > 0.00f)
-            //{
+            _slot.currentRotRate = inventory.Location.rotRate;
 
-            //_slot.currentRotTime -= controlledTime * .25f;
-            //Debug.Log("This Is Also Working");
-            //}
         }
         else
         {

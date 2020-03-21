@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
 
         if (thisItem)
         {
-            //InventoryType productSO = thisItem.item;
             LocationTypes location = thisItem.Location;
             float currentRotTime = thisItem.currentRotTime;
             float currentRotRate = thisItem.currentRotRate;
@@ -56,6 +55,10 @@ public class Player : MonoBehaviour
         {
             inventory.Load();
             fridge.Load();
+        }
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
 

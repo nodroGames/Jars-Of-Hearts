@@ -23,29 +23,29 @@ MonoBehaviour:
         Id: -1
       amount: 0
       location: {fileID: 0}
-      productSO: {fileID: 0}
       currentRotTime: 0
+      currentRotRate: 0
     - AllowedItems: 00000000
       item:
         Name: 
         Id: -1
       amount: 0
       location: {fileID: 0}
-      productSO: {fileID: 0}
       currentRotTime: 0
+      currentRotRate: 0
     - AllowedItems: 00000000
       item:
         Name: 
         Id: -1
       amount: 0
       location: {fileID: 0}
-      productSO: {fileID: 0}
       currentRotTime: 0
+      currentRotRate: 0
     - AllowedItems: 00000000
       item:
         Name: 
         Id: -1
       amount: 0
       location: {fileID: 0}
-      productSO: {fileID: 0}
       currentRotTime: 0
+      currentRotRate: 0

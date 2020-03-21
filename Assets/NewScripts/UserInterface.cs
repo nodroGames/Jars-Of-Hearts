@@ -106,7 +106,6 @@ public abstract class UserInterface : MonoBehaviour
                 {
                     obj.Value.ItemObject = listOfProducts[3];
                     //tempSlot.productSO = listOfProducts[3];
-                    Debug.Log(tempSlot.productSO);
                     //HealthState = mush;
                     //item = (InventoryType)heartStateType;
                     //ReadData();
@@ -116,7 +115,6 @@ public abstract class UserInterface : MonoBehaviour
                     obj.Value.ItemObject = listOfProducts[2];
                     //slotsOnInterface[obj].ItemObject.uiDisplay
                     //tempSlot.productSO = listOfProducts[2];
-                    Debug.Log(tempSlot.productSO);
                     //HealthState = halfRot;
                     //item = (InventoryType)heartStateType;
                     //ReadData();
@@ -131,7 +129,7 @@ public abstract class UserInterface : MonoBehaviour
                     //Item _item = new Item(obj.Value.ItemObject);
                     
 
-                    obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.productSO, obj.Value.currentRotTime, obj.Value.currentRotRate);
+                    obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
                     //tempSlot.productSO = listOfProducts[1];
 
                    

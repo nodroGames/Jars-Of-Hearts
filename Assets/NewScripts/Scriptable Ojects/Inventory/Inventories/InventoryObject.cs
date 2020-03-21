@@ -25,7 +25,7 @@ public class InventoryObject : ScriptableObject
     public Inventory Container;
     public InventorySlot[] GetSlots { get { return Container.Slots; } }
 
-    public bool AddItem(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime, float _currentRotRate)
+    public bool AddItem(Item _item, int _amount, LocationTypes _location, float _currentRotTime, float _currentRotRate)
     {
         if (EmptySlotCount <= 0 && !database.ItemObjects[_item.Id].stackable)
             return false;
@@ -34,7 +34,7 @@ public class InventoryObject : ScriptableObject
             return false;
         if (!database.ItemObjects[_item.Id].stackable || slot == null)
         {
-            SetFirstEmptySlot(_item, _amount, _location, _productSO, _currentRotTime, _currentRotRate);
+            SetFirstEmptySlot(_item, _amount, _location, _currentRotTime, _currentRotRate);
             return true;
         }
         slot.AddAmount(_amount);
@@ -63,13 +63,13 @@ public class InventoryObject : ScriptableObject
         }
         return null;
     }
-    public InventorySlot SetFirstEmptySlot(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime, float _currentRotRate)
+    public InventorySlot SetFirstEmptySlot(Item _item, int _amount, LocationTypes _location, float _currentRotTime, float _currentRotRate)
     {
         for (int i = 0; i < GetSlots.Length; i++)
         {
             if (GetSlots[i].item.Id <= -1)
             {
-                GetSlots[i].UpdateSlot(_item, _amount, _location, _productSO, _currentRotTime, _currentRotRate);
+                GetSlots[i].UpdateSlot(_item, _amount, _location, _currentRotTime, _currentRotRate);
                 return GetSlots[i];
             }
         }
@@ -81,19 +81,19 @@ public class InventoryObject : ScriptableObject
     {
         if(item2.CanPlaceInSlot(item1.ItemObject) && item1.CanPlaceInSlot(item2.ItemObject))
         {
-            InventorySlot tempSlot = new InventorySlot(item2.item, item2.amount, item2.location, item2.productSO, item2.currentRotTime, item2.currentRotRate);
-            item2.UpdateSlot(item1.item, item1.amount, item1.location, item1.productSO, item1.currentRotTime, item1.currentRotRate);
-            item1.UpdateSlot(tempSlot.item, tempSlot.amount, tempSlot.location, tempSlot.productSO, tempSlot.currentRotTime, tempSlot.currentRotRate);
+            InventorySlot tempSlot = new InventorySlot(item2.item, item2.amount, item2.location,item2.currentRotTime, item2.currentRotRate);
+            item2.UpdateSlot(item1.item, item1.amount, item1.location, item1.currentRotTime, item1.currentRotRate);
+            item1.UpdateSlot(tempSlot.item, tempSlot.amount, tempSlot.location, tempSlot.currentRotTime, tempSlot.currentRotRate);
         }
     }
 
-    public void RemoveItem(Item _item, LocationTypes _location, InventoryType _productSO, float _currentRotTime)
+    public void RemoveItem(Item _item, LocationTypes _location, float _currentRotTime)
     {
         for (int i = 0; i < GetSlots.Length; i++)
         {
             if (GetSlots[i].item == _item)
             {
-                GetSlots[i].UpdateSlot(null, 0, null, null, 0, 0);
+                GetSlots[i].UpdateSlot(null, 0, null, 0, 0);
             }
         }
     }
@@ -117,7 +117,7 @@ public class InventoryObject : ScriptableObject
 
             for (int i = 0; i < GetSlots.Length; i++)
             {
-                GetSlots[i].UpdateSlot(newContainer.Slots[i].item, newContainer.Slots[i].amount, newContainer.Slots[i].location, newContainer.Slots[i].productSO, newContainer.Slots[i].currentRotTime, newContainer.Slots[i].currentRotRate);
+                GetSlots[i].UpdateSlot(newContainer.Slots[i].item, newContainer.Slots[i].amount, newContainer.Slots[i].location, newContainer.Slots[i].currentRotTime, newContainer.Slots[i].currentRotRate);
             }
             stream.Close();
         }
@@ -159,7 +159,6 @@ public class InventorySlot
     public Item item = new Item();
     public int amount;
     public LocationTypes location;
-    public InventoryType productSO;
     public float currentRotTime;
     public float currentRotRate;
 
@@ -182,20 +181,19 @@ public class InventorySlot
 
     public InventorySlot()
     {
-        UpdateSlot(new Item(), 0, location, productSO, currentRotTime, currentRotRate);
+        UpdateSlot(new Item(), 0, location, currentRotTime, currentRotRate);
     }
-    public InventorySlot(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime, float _currentRotRate)
+    public InventorySlot(Item _item, int _amount, LocationTypes _location, float _currentRotTime, float _currentRotRate)
     {
-        UpdateSlot(_item, _amount, _location, _productSO, _currentRotTime, _currentRotRate);
+        UpdateSlot(_item, _amount, _location, _currentRotTime, _currentRotRate);
     }
-    public void UpdateSlot(Item _item, int _amount, LocationTypes _location, InventoryType _productSO, float _currentRotTime, float _currentRotRate)
+    public void UpdateSlot(Item _item, int _amount, LocationTypes _location, float _currentRotTime, float _currentRotRate)
     {
         if (OnBeforeUpdate != null)
             OnBeforeUpdate.Invoke(this);
         item = _item;
         amount = _amount;
         location = _location;
-        productSO = _productSO;
         currentRotTime = _currentRotTime;
         currentRotRate = _currentRotRate;
 
@@ -204,11 +202,11 @@ public class InventorySlot
     }
     public void RemoveItem()
     {
-        UpdateSlot(new Item(), 0, null, null, 0, 0);
+        UpdateSlot(new Item(), 0, null, 0, 0);
     }
     public void AddAmount(int value)
     {
-        UpdateSlot(item, amount += value, location, productSO, currentRotTime, currentRotRate);
+        UpdateSlot(item, amount += value, location, currentRotTime, currentRotRate);
     }
     public bool CanPlaceInSlot(InventoryType _itemObject)
     {

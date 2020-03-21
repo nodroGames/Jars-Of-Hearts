@@ -26,14 +26,14 @@ public class Player : MonoBehaviour
 
         if (thisItem)
         {
-            InventoryType productSO = thisItem.item;
+            //InventoryType productSO = thisItem.item;
             LocationTypes location = thisItem.Location;
             float currentRotTime = thisItem.currentRotTime;
             float currentRotRate = thisItem.currentRotRate;
             
             Item _item = new Item(thisItem.item);
 
-            if (inventory.AddItem(_item, 1, location, productSO, currentRotTime, currentRotRate))
+            if (inventory.AddItem(_item, 1, location, currentRotTime, currentRotRate))
             {
                 //other.gameObject.transform.position = new Vector2(heartPool.position.x, heartPool.position.y);                
                 

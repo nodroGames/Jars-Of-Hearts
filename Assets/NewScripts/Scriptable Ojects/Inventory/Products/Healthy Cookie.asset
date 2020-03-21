@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Healthy Cookie
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 0}
+  state: 0
   stackable: 0
   data:
-    Name: 
-    Id: -1
+    Name: Healthy Cookie
+    Id: 2
   type: 1
-  location: {fileID: 0}
   description: 

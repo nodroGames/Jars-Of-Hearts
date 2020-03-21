@@ -16,8 +16,7 @@ MonoBehaviour:
   state: 3
   stackable: 0
   data:
-    Name: 
+    Name: Mush
     Id: 4
   type: 2
-  location: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
   description: 

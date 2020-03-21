@@ -25,7 +25,7 @@ MonoBehaviour:
   - type: {fileID: 11400000, guid: e40d5935ddb3bfd4a9fd8d6821c38089, type: 2}
     rotRate: 0
     value: 1
-  - type: {fileID: 11400000, guid: e40d5935ddb3bfd4a9fd8d6821c38089, type: 2}
+  - type: {fileID: 11400000, guid: d661b977c8b499944a9a6a93ef202af6, type: 2}
     rotRate: 0
     value: 1
   defaultLocationType: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9,

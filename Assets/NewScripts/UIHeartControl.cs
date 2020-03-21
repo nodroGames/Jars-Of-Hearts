@@ -44,12 +44,10 @@ namespace Assets.NewScripts
 
         public void SetHeartUI(RealHeartScript.LocationType locationType, RealHeartScript.HeartStateType heartStateType, float currentRotTime)
         {
-            //Debug.Log(this.name + this.transform.GetChild(0).gameObject.name);
+           
             uIHeartStateType = (UIHeartStateType)heartStateType;
             uiLocationType = (UILocationType)locationType;
             uiCurrentRotTime = currentRotTime;
-            //Debug.LogError(uiCurrentRotTime);
-            //uIHeartControlLocationType = locationType;
         }
 
         private void rotOverTime()
@@ -82,20 +80,16 @@ namespace Assets.NewScripts
             {
                 this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = UIQuarterHeart;
                 uIHeartStateType = UIHeartStateType.QuarterRot;
-                //heartItemUI = quarterRotHeartIconUI;
             }
             else if (uiCurrentRotTime <= rotBaseTime * uiHalf)
             {
                 this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = UIHalfHeart;
                 uIHeartStateType = UIHeartStateType.HalfRot;
-                //heartItemUI = halfRotHeartIconUI;
             }
             else
             {
                 this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = UIHealthyHeart;
                 uIHeartStateType = UIHeartStateType.Healthy;
-                //heartItemUI = healthyHeartIconUI;
-                Debug.Log("We Have A Healthy Heart");
             }
         }
     }

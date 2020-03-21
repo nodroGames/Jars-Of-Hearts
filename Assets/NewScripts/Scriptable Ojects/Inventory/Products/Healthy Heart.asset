@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: Healthy Heart
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: 5d75f9fdd8c046244adc65fe5ff31a26, type: 3}
-  healthyHeartSprite: {fileID: 21300000, guid: 5d75f9fdd8c046244adc65fe5ff31a26, type: 3}
-  quarterHeartSprite: {fileID: 21300000, guid: c80b9cb94b479ac4da705b66d062eaed, type: 3}
-  halfHeartSprite: {fileID: 21300000, guid: f4dffe26cf732714190affed49465707, type: 3}
   state: 0
   stackable: 0
   data:
-    Name: 
+    Name: Healthy Heart
     Id: 3
   type: 0
   description: 

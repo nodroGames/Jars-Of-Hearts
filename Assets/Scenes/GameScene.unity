@@ -335,6 +335,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 5023a30239f251a49abb0a97b98d0ee4, type: 2}
+  listOfLocations:
+  - {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
+  - {fileID: 11400000, guid: f588bf7d0d657ab4bb364eaa5590f369, type: 2}
+  - {fileID: 11400000, guid: 27cc02be126a45f4890866f0ae57cdcc, type: 2}
+  - {fileID: 11400000, guid: e40d5935ddb3bfd4a9fd8d6821c38089, type: 2}
+  - {fileID: 11400000, guid: d661b977c8b499944a9a6a93ef202af6, type: 2}
+  listOfProducts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   slots:
   - {fileID: 119552313}
   - {fileID: 143375982}
@@ -8764,6 +8775,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 07a80ec68c66aa04b92fd12df98f1d01, type: 2}
+  listOfLocations:
+  - {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
+  - {fileID: 11400000, guid: f588bf7d0d657ab4bb364eaa5590f369, type: 2}
+  - {fileID: 11400000, guid: 27cc02be126a45f4890866f0ae57cdcc, type: 2}
+  - {fileID: 11400000, guid: e40d5935ddb3bfd4a9fd8d6821c38089, type: 2}
+  - {fileID: 11400000, guid: d661b977c8b499944a9a6a93ef202af6, type: 2}
+  listOfProducts:
+  - {fileID: 11400000, guid: 3631d6c447de64c47bbc0d0f15122dc7, type: 2}
+  - {fileID: 11400000, guid: 3ba9ed46bcdaa1d4a8759ab2cef017eb, type: 2}
+  - {fileID: 11400000, guid: 607bb0c75e8974e46953fe2fbfe7fea9, type: 2}
+  - {fileID: 11400000, guid: 6634a822354bc3443b08b4e3ba870c12, type: 2}
   inventoryPrefab: {fileID: 2556135785549315912, guid: d8d7b667c29520f4483bf6078b9ddd2d,
     type: 3}
   X_START: 0

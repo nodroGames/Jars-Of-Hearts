@@ -16,8 +16,7 @@ MonoBehaviour:
   state: 2
   stackable: 0
   data:
-    Name: 
+    Name: Half Heart
     Id: 1
   type: 0
-  location: {fileID: 11400000, guid: 27cc02be126a45f4890866f0ae57cdcc, type: 2}
   description: 

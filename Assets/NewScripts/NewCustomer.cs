@@ -88,7 +88,6 @@ namespace Assets.NewScripts
         {
             if (isDead)
             {
-                //Debug.Log(this.gameObject.name + (" Is Dead and Disabled"));
                 Kitchen.customerIsOnTheTour = false;
                 wasDead = true;
                 Invoke("OnEnable", 2.0f);

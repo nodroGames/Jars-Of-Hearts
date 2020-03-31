@@ -1,24 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+//using static Utilities;
 
 public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
     public InventoryObject fridge;
-
-    //[SerializeField]
-
+    //[Line]
     public UserInterface _inventorySlot;
 
     private Transform heartPool;
+
+    public int Padding { get; }
 
     private void Awake()
     {
         heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
 
         
-    }    
+    }
+
+   
 
     public void OnTriggerEnter2D(Collider2D other)
     {       
@@ -34,10 +38,6 @@ public class Player : MonoBehaviour
 
             if (inventory.AddItem(_item, 1, location, currentRotTime, currentRotRate))
             {
-                //other.gameObject.transform.position = new Vector2(heartPool.position.x, heartPool.position.y);                
-                
-
-                //_heartInSlotScript.SetHeartUI(thisItem.Location, thisItem.item, thisItem.currentRotTime);
 
                 Destroy(other.gameObject);
             }
@@ -67,5 +67,4 @@ public class Player : MonoBehaviour
         inventory.Clear();
         fridge.Clear();
     }
-
 }

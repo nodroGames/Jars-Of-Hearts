@@ -2,7 +2,7 @@
 
 [CreateAssetMenu(fileName = "LocationTypes", menuName = "Scriptable Objects/Variables/EnumValue")]
 
-[System.Serializable]
+//[System.Serializable]
 public class EnumValue : ScriptableObject
 {
 

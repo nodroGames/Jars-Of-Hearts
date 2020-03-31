@@ -7,14 +7,6 @@ using UnityEditor;
 using System.Runtime.Serialization;
 using System;
 
-//public enum InterfaceType
-//{
-//    Inventory,
-//    Fridge,
-//    Oven,
-//    Trash
-//}
-
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Scriptable Objects/Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
@@ -158,8 +150,11 @@ public class InventorySlot
     public SlotUpdated OnBeforeUpdate;
     public Item item = new Item();
     public int amount;
+    [System.NonSerialized]
     public LocationTypes location;
+    [System.NonSerialized]
     public float currentRotTime;
+    [System.NonSerialized]
     public float currentRotRate;
 
     public InventoryType ItemObject

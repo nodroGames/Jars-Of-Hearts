@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using static Utilities;
+
 
 public enum ProductType
 {
@@ -9,31 +11,15 @@ public enum ProductType
     Default
 }
 
-//public enum ProductState
-//{
-//    Healthy,
-//    QuarterRot,
-//    HalfRot,
-//    Mush
-//}
-
-//public enum InterfaceLocation
-//{
-//    Floor,
-//    Inventory,
-//    Fridge,
-//    Oven,
-//    Jar
-//}
-
 [CreateAssetMenu(fileName = "New Item", menuName = "Scriptable Objects/Inventory System/Items")]
 public class InventoryType : ScriptableObject
 {
     [Header("= Visuals =")]
+    //[Line]
     public Sprite uiDisplay;
 
     [Header("= Data =")]
-    //public ProductState state;
+    //[Line]
     public bool stackable;
     public Item data = new Item();
     public ProductType type;
@@ -53,15 +39,25 @@ public class Item
 {
     public string Name;
     public int Id = -1;
+    //public LocationTypes location;
+    //public float currentRotTime;
+    //public float currentRotRate;
 
     public Item()
     {
         Name = "";
         Id = -1;
+        //location = null;
+        //currentRotTime = 0;
+        //currentRotRate = 0;
+
     }
     public Item(InventoryType item)
     {
         Name = item.name;
         Id = item.data.Id;
+        //location = item.data.location;
+        //currentRotTime = item.data.currentRotTime;
+        //currentRotRate = item.data.currentRotRate;
     }
 }

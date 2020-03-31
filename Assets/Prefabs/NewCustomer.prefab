@@ -200,6 +200,4 @@ MonoBehaviour:
   bloodEffect: {fileID: 3338537808262928404, guid: c616cbbd263635041a979aea51552393,
     type: 3}
   beforeDestroyed: 1
-  instructionalF: {fileID: 3044127294181861760, guid: 1c1f54431e3a3d34fbab4f55330f4ff7,
-    type: 3}
-  heart: {fileID: 1475686483962303472, guid: 92b3bcad6821d0147986893717ed5d6e, type: 3}
+  heart: {fileID: 7866637671293392656, guid: c8310dfcb3bde1f40871784082cf9260, type: 3}

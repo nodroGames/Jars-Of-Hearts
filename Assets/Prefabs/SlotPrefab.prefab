@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2556135785549315913}
-  - component: {fileID: 4562179845330041268}
   - component: {fileID: 2556135785549315915}
   - component: {fileID: 2556135785549315914}
   - component: {fileID: 1146486081944592759}
@@ -42,33 +41,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4562179845330041268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2556135785549315912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1122dd8b8e20b1f46bcff8cf915d73a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  healthSystem: {fileID: 11400000, guid: 9c572f78234639948988975590b40651, type: 2}
-  healthy: {fileID: 11400000, guid: 4e78b68278dd0a145a4dea5f16dd4b02, type: 2}
-  quarterRot: {fileID: 11400000, guid: addd4f96115da3249b92aa587c3864a8, type: 2}
-  halfRot: {fileID: 11400000, guid: a969d929956c51c4ebc2744f235cb683, type: 2}
-  mush: {fileID: 11400000, guid: 0b3de6b5fc62eb24db407d041b68de52, type: 2}
-  floor: {fileID: 11400000, guid: b83844d6773866c4bab5c5b98bd063f9, type: 2}
-  inventory: {fileID: 11400000, guid: f588bf7d0d657ab4bb364eaa5590f369, type: 2}
-  fridge: {fileID: 11400000, guid: 27cc02be126a45f4890866f0ae57cdcc, type: 2}
-  oven: {fileID: 11400000, guid: e40d5935ddb3bfd4a9fd8d6821c38089, type: 2}
-  jar: {fileID: 11400000, guid: d661b977c8b499944a9a6a93ef202af6, type: 2}
-  currentRotRate: 0
-  rotBaseTime: 60
-  location: {fileID: 0}
-  currentRotTime: 0
 --- !u!222 &2556135785549315915
 CanvasRenderer:
   m_ObjectHideFlags: 0

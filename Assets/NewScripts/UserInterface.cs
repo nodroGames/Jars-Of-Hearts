@@ -67,6 +67,10 @@ public abstract class UserInterface : MonoBehaviour
                 //half rot state
                 else if (obj.Value.currentRotTime <= rotBaseTime * half)
                 {
+                    if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
+                    {
+                        obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
+                    }
                     if (obj.Value.currentRotTime > 0.00f)
                     {
                         obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
@@ -82,6 +86,10 @@ public abstract class UserInterface : MonoBehaviour
                 //quarter rot state
                 else if (obj.Value.currentRotTime <= rotBaseTime * quarter)
                 {
+                    if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
+                    {
+                        obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
+                    }
                     if (obj.Value.currentRotTime > 0.00f)
                     {
                         obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
@@ -97,6 +105,10 @@ public abstract class UserInterface : MonoBehaviour
                 // healthy heart state
                 else
                 {
+                    if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
+                    {
+                        obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
+                    }
                     if (obj.Value.currentRotTime > 0.00f)
                     {
                         obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;

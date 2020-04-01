@@ -192,16 +192,16 @@ public abstract class UserInterface : MonoBehaviour
         Destroy(MouseData.tempItemBeingDragged); //Destroys the temporarily created item.
         if (MouseData.interfaceMouseIsOver == null)
         {
-            slotsOnInterface[obj].RemoveItem();
+            //slotsOnInterface[obj].RemoveItem();
             return;
         }
         if (MouseData.slotHoveredOver)
         {
-
-            //if (inventory.type == InterfaceType.Trash)
-            //{
-
-            //}
+           if (MouseData.slotHoveredOver.name == "SlotTrashPrefab")
+           {
+                slotsOnInterface[obj].RemoveItem();
+                slotsOnInterface[obj].slotDisplay = null;
+            }
             InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.slotsOnInterface[MouseData.slotHoveredOver];
             inventory.SwapItems(slotsOnInterface[obj], mouseHoverSlotData);
         }

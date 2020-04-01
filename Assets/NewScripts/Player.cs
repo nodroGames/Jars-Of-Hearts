@@ -8,17 +8,19 @@ public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
     public InventoryObject fridge;
+    public InventoryObject trash;
+
     //[Line]
     public UserInterface _inventorySlot;
 
     private Transform heartPool;
 
-    public int Padding { get; }
+    //public int Padding { get; }
 
     private void Awake()
     {
+        //clearable = Inventories.GetType().GetInterface(typeof(IClearable).ToString);
         heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
-
         
     }
 
@@ -66,5 +68,6 @@ public class Player : MonoBehaviour
     {
         inventory.Clear();
         fridge.Clear();
+        trash.Clear();
     }
 }

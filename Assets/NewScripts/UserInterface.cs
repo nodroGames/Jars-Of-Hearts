@@ -15,6 +15,8 @@ public abstract class UserInterface : MonoBehaviour
     
     public List<InventoryType> listOfProducts;
 
+    private GameObject trashGO;
+
     private int rotBaseTime;
 
     private float half;
@@ -23,6 +25,7 @@ public abstract class UserInterface : MonoBehaviour
 
     private void Awake()
     {
+        trashGO = GameObject.Find("SlotTrashPrefab");
         rotBaseTime = 60;
         half = 0.50f;
         quarter = 0.75f;
@@ -53,7 +56,7 @@ public abstract class UserInterface : MonoBehaviour
             {
             if (obj.Value.item.Id >= 0)
             {
-                // Mush State
+                // Changes to Mush State
                 if (obj.Value.currentRotTime <= rotBaseTime * 0)
                 {
                     obj.Value.ItemObject = listOfProducts[3];
@@ -64,7 +67,7 @@ public abstract class UserInterface : MonoBehaviour
                     obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = false;
                 }
 
-                //half rot state
+                // Changes to half rot state
                 else if (obj.Value.currentRotTime <= rotBaseTime * half)
                 {
                     if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
@@ -83,7 +86,7 @@ public abstract class UserInterface : MonoBehaviour
                     obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
                 }
 
-                //quarter rot state
+                // Changes to quarter rot state
                 else if (obj.Value.currentRotTime <= rotBaseTime * quarter)
                 {
                     if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
@@ -102,7 +105,7 @@ public abstract class UserInterface : MonoBehaviour
                     obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
                 }
 
-                // healthy heart state
+                // Starts at healthy heart state
                 else
                 {
                     if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
@@ -192,18 +195,26 @@ public abstract class UserInterface : MonoBehaviour
         Destroy(MouseData.tempItemBeingDragged); //Destroys the temporarily created item.
         if (MouseData.interfaceMouseIsOver == null)
         {
-            //slotsOnInterface[obj].RemoveItem();
             return;
         }
         if (MouseData.slotHoveredOver)
         {
-           if (MouseData.slotHoveredOver.name == "SlotTrashPrefab")
-           {
+            // If the mouse hovers over the trash can prefab it will distroy to item out of the inventory
+            if (MouseData.slotHoveredOver.gameObject == trashGO)
+            {
                 slotsOnInterface[obj].RemoveItem();
-                slotsOnInterface[obj].slotDisplay = null;
+                trashGO.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             }
-            InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.slotsOnInterface[MouseData.slotHoveredOver];
-            inventory.SwapItems(slotsOnInterface[obj], mouseHoverSlotData);
+            else
+            {
+                InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.slotsOnInterface[MouseData.slotHoveredOver];
+                // only will start to swap if there is an item in the inventory
+                if (slotsOnInterface[obj].item.Id >= 0)
+                {
+                    inventory.SwapItems(slotsOnInterface[obj], mouseHoverSlotData);
+                }
+            }        
+            return;
         }
     }
     public void OnDrag(GameObject obj)

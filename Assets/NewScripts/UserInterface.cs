@@ -15,17 +15,16 @@ public abstract class UserInterface : MonoBehaviour
     
     public List<InventoryType> listOfProducts;
 
-    private GameObject trashGO;
-
     private int rotBaseTime;
 
     private float half;
     private float quarter;
 
+    public delegate void RemoveFromInventoryHandler();
+    public event RemoveFromInventoryHandler OnRemoved;
 
     private void Awake()
     {
-        trashGO = GameObject.Find("SlotTrashPrefab");
         rotBaseTime = 60;
         half = 0.50f;
         quarter = 0.75f;
@@ -200,10 +199,10 @@ public abstract class UserInterface : MonoBehaviour
         if (MouseData.slotHoveredOver)
         {
             // If the mouse hovers over the trash can prefab it will distroy to item out of the inventory
-            if (MouseData.slotHoveredOver.gameObject == trashGO)
+            if (MouseData.interfaceMouseIsOver.name == "Trash Can Panel")
             {
                 slotsOnInterface[obj].RemoveItem();
-                trashGO.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                OnRemoved?.Invoke();
             }
             else
             {

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public InventoryObject inventory;
     public InventoryObject fridge;
     public InventoryObject trash;
+    public InventoryObject oven;
 
     //[Line]
     public UserInterface _inventorySlot;
@@ -69,5 +70,6 @@ public class Player : MonoBehaviour
         inventory.Clear();
         fridge.Clear();
         trash.Clear();
+        oven.Clear();
     }
 }

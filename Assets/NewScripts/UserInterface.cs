@@ -20,7 +20,7 @@ public abstract class UserInterface : MonoBehaviour
     private float half;
     private float quarter;
 
-    public delegate void RemoveFromInventoryHandler();
+    public delegate void RemoveFromInventoryHandler(Item item, int amount, LocationTypes location,  float currentRotTime, float currentRotRate);
     public event RemoveFromInventoryHandler OnRemoved;
 
     private void Awake()
@@ -202,7 +202,12 @@ public abstract class UserInterface : MonoBehaviour
             if (MouseData.interfaceMouseIsOver.name == "Trash Can Panel")
             {
                 slotsOnInterface[obj].RemoveItem();
-                OnRemoved?.Invoke();
+            }
+            else if ( MouseData.interfaceMouseIsOver.name == "Oven Screen")
+            {
+                OnRemoved?.Invoke(slotsOnInterface[obj].item, slotsOnInterface[obj].amount, slotsOnInterface[obj].location, slotsOnInterface[obj].currentRotTime, slotsOnInterface[obj].currentRotRate);
+
+                slotsOnInterface[obj].RemoveItem();
             }
             else
             {

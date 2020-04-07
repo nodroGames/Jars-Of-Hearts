@@ -5954,9 +5954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2544136a7a0e92843af269e4b31a1156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryInterface: {fileID: 1731443544}
-  FridgeInterface: {fileID: 17166050}
-  OvenInterface: {fileID: 1811104489}
 --- !u!1001 &996664599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9476,6 +9473,7 @@ GameObject:
   - component: {fileID: 1811104490}
   - component: {fileID: 1811104489}
   - component: {fileID: 1811104492}
+  - component: {fileID: 1811104493}
   m_Layer: 5
   m_Name: Oven Screen
   m_TagString: Untagged
@@ -9574,6 +9572,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+--- !u!114 &1811104493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811104487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e6554d59691f340aeb1d15c56db78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryInterface: {fileID: 1731443544}
+  FridgeInterface: {fileID: 17166050}
 --- !u!1 &1816511837
 GameObject:
   m_ObjectHideFlags: 0

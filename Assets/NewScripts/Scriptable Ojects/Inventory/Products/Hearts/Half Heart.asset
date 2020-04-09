@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17382d8ccd8eb5146bac6f5b3e4af470, type: 3}
-  m_Name: Quarter Cookie
+  m_Name: Half Heart
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
-  state: 1
+  uiDisplay: {fileID: 21300000, guid: f4dffe26cf732714190affed49465707, type: 3}
   stackable: 0
   data:
-    Name: Quarter Cookie
-    Id: 5
-  type: 1
+    Name: Half Heart
+    Id: 1
+  type: 0
   description: 

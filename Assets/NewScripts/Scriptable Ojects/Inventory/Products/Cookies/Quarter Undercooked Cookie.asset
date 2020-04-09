@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17382d8ccd8eb5146bac6f5b3e4af470, type: 3}
-  m_Name: Healthy Heart
+  m_Name: Quarter Undercooked Cookie
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 21300000, guid: 5d75f9fdd8c046244adc65fe5ff31a26, type: 3}
-  state: 0
+  uiDisplay: {fileID: 21300000, guid: 31d6786ececbe064084c6a8e9012cc9c, type: 3}
   stackable: 0
   data:
-    Name: Healthy Heart
-    Id: 3
-  type: 0
+    Name: Quarter Undercooked Cookie
+    Id: -1
+  type: 1
   description: 

@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public InventoryObject inventory;
     public InventoryObject fridge;
     public InventoryObject trash;
-    public InventoryObject oven;
+    public InventoryObject topOvenRack;
+    public InventoryObject bottomOvenRack;
 
     //[Line]
     public UserInterface _inventorySlot;
@@ -70,6 +71,7 @@ public class Player : MonoBehaviour
         inventory.Clear();
         fridge.Clear();
         trash.Clear();
-        oven.Clear();
+        topOvenRack.Clear();
+        bottomOvenRack.Clear();
     }
 }

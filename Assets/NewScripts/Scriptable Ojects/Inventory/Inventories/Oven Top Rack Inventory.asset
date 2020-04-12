@@ -10,18 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef4fbb11c25450499f12d3921b00524, type: 3}
-  m_Name: Oven Inventory
+  m_Name: Oven Top Rack Inventory
   m_EditorClassIdentifier: 
   savePath: /inventory.Save
   database: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e, type: 2}
   Location: {fileID: 11400000, guid: e40d5935ddb3bfd4a9fd8d6821c38089, type: 2}
   Container:
     Slots:
-    - AllowedItems: 00000000
-      item:
-        Name: 
-        Id: -1
-      amount: 0
     - AllowedItems: 00000000
       item:
         Name: 

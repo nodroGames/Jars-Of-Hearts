@@ -20,7 +20,7 @@ public abstract class UserInterface : MonoBehaviour
     private float half;
     private float quarter;
 
-    public delegate void RemoveFromInventoryHandler(Item item, int amount, LocationTypes location,  float currentRotTime, float currentRotRate);
+    public delegate void RemoveFromInventoryHandler(InventorySlot slotsOnInterface);
     public event RemoveFromInventoryHandler OnRemoved;
 
     private void Awake()
@@ -165,6 +165,7 @@ public abstract class UserInterface : MonoBehaviour
     public void OnEnterInterface(GameObject obj)
     {
         MouseData.interfaceMouseIsOver = obj.GetComponent<UserInterface>();
+       // Debug.Log(MouseData.interfaceMouseIsOver.name);
     }
     public void OnExitInterface(GameObject obj)
     {
@@ -199,13 +200,14 @@ public abstract class UserInterface : MonoBehaviour
         if (MouseData.slotHoveredOver)
         {
             // If the mouse hovers over the trash can prefab it will distroy to item out of the inventory
-            if (MouseData.interfaceMouseIsOver.name == "Trash Can Panel")
+            if (slotsOnInterface[obj].item.Id >= 0 && MouseData.interfaceMouseIsOver.name == "Trash Can Panel")
             {
                 slotsOnInterface[obj].RemoveItem();
             }
-            else if ( MouseData.interfaceMouseIsOver.name == "Oven Screen")
-            {
-                OnRemoved?.Invoke(slotsOnInterface[obj].item, slotsOnInterface[obj].amount, slotsOnInterface[obj].location, slotsOnInterface[obj].currentRotTime, slotsOnInterface[obj].currentRotRate);
+            else if (slotsOnInterface[obj].item.Id >= 0 && MouseData.interfaceMouseIsOver.name == "Top Rack Panel" || MouseData.interfaceMouseIsOver.name == "Bottom Rack Panel")
+            {            
+
+                OnRemoved?.Invoke(slotsOnInterface[obj]);
 
                 slotsOnInterface[obj].RemoveItem();
             }

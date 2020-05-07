@@ -16,14 +16,6 @@ public class OvenHandler : MonoBehaviour
     private GameObject ovenRackTopCookiePanel = default;
     [SerializeField]
     private GameObject ovenRackBottomCookiePanel = default;
-    [SerializeField]
-    private StaticInterface ovenRackTopScript = default;
-    [SerializeField]
-    private InventoryType healthCookie;
-    [SerializeField]
-    private InventoryType quarterCookie;
-    [SerializeField]
-    private InventoryType halfCookie;
 
     private Item item;
     private int amount;
@@ -49,19 +41,14 @@ public class OvenHandler : MonoBehaviour
         if (MouseData.interfaceMouseIsOver.name == "Top Rack Panel")
         {
             ovenRackTopHeartPanel.SetActive(false);
-            ovenRackTopCookiePanel.SetActive(true);
-            foreach (GameObject cookieSlots in ovenRackTopScript.slots)
-            {
-                if (item.Id == 0)
-                {
-                    Instantiate(healthCookie, Vector3.zero, Quaternion.identity, cookieSlots.transform);
-                }
-            }
+            var setTopRack = ovenRackTopCookiePanel.GetComponent<ConvertHeartToCookie>();
+            setTopRack.ConvertToCorrectCookie(item, amount, location, currentRotTime, currentRotRate);
         }
         if (MouseData.interfaceMouseIsOver.name == "Bottom Rack Panel")
         {
             ovenRackBottomHeartPanel.SetActive(false);
-            //ovenRackBottomCookiePanel.SetActive(true);
+            var setBottomRack = ovenRackBottomCookiePanel.GetComponent<ConvertHeartToCookie>();
+            setBottomRack.ConvertToCorrectCookie(item, amount, location, currentRotTime, currentRotRate);
         }
     }
 

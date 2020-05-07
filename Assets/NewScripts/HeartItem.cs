@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
+public class HeartItem : MonoBehaviour/*, ISerializationCallbackReceiver*/
 {
     public InventoryType item;
 
@@ -55,15 +55,15 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
 
     public ItemDatabaseObject database;
 
-    public void OnAfterDeserialize()
-    {
+    //public void OnAfterDeserialize()
+    //{
 
-    }
+    //}
 
-    public void OnBeforeSerialize()
-    {
-        GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
-    }
+    //public void OnBeforeSerialize()
+    //{
+    //    GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
+    //}
 
     [SerializeField]
     private float rotBaseTime = 60.0f;
@@ -138,6 +138,4 @@ public class HeartItem : MonoBehaviour, ISerializationCallbackReceiver
     {
         GetComponentInChildren<SpriteRenderer>().sprite = item.uiDisplay;
     }
-
-
 }

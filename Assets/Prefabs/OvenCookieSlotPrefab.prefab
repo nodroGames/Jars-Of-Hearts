@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2556135785549315914}
   - component: {fileID: 1146486081944592759}
   - component: {fileID: 2384026032172052884}
+  - component: {fileID: 2146869938894726138}
   m_Layer: 5
   m_Name: OvenCookieSlotPrefab
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a1d0a0ea97245c948b498aff81cf636d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -130,6 +131,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+--- !u!114 &2146869938894726138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2556135785549315912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642ac01a012055b4a97a8144f179d22c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 132e814fe88b4f2449d5552a1b098721, type: 2}
 --- !u!1 &2556135786358239178
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.6025, y: -239}
+  m_AnchoredPosition: {x: 5.6025, y: -8.2}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2556135786358239181
@@ -296,7 +310,6 @@ GameObject:
   - component: {fileID: 601299370663430438}
   - component: {fileID: 8140367960253242067}
   - component: {fileID: 736524053485225633}
-  - component: {fileID: 4737783731844230218}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -358,22 +371,3 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!95 &4737783731844230218
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3394557002430482220}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba7aca0b7c8e0f44d83f416888c274dd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

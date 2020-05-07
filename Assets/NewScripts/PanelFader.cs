@@ -33,7 +33,7 @@ public class PanelFader : MonoBehaviour
 
     public IEnumerator DoFade( CanvasGroup canvasGroup, float start, float end)
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         float counter = -1.0f;
 
         while (counter < duration)
@@ -47,12 +47,12 @@ public class PanelFader : MonoBehaviour
         if (canvasGroup.alpha > 0)
         {
             transform.position = visableStartPosition;
-            Debug.Log("Panel Is Visable");
+           // Debug.Log("Panel Is Visable");
         }
         if (canvasGroup.alpha == 0)
         {
             transform.position = hidePosition;
-            Debug.Log("Panel Is NOT Visable");
+            //Debug.Log("Panel Is NOT Visable");
         }
 
     }

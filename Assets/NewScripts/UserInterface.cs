@@ -32,21 +32,25 @@ public abstract class UserInterface : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < inventory.GetSlots.Length; i++)
-        {
-            inventory.GetSlots[i].parent = this;
-            inventory.GetSlots[i].OnAfterUpdate += OnSlotUpdate;
-
-        }
-        CreateSlots();
-        AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
-        AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
+        CallUpdate();        
     }
 
     //Update is called once per frame
     void Update()
     {
-        swapProductState();
+        //swapProductState();
+    }
+
+    public void CallUpdate()
+    {
+        for (int i = 0; i < inventory.GetSlots.Length; i++)
+        {
+            inventory.GetSlots[i].parent = this;
+            inventory.GetSlots[i].OnAfterUpdate += OnSlotUpdate;
+        }
+        CreateSlots();
+        AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
+        AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
     }
 
     private void swapProductState()
@@ -207,7 +211,7 @@ public abstract class UserInterface : MonoBehaviour
             else if (slotsOnInterface[obj].item.Id >= 0 && MouseData.interfaceMouseIsOver.name == "Top Rack Panel" || MouseData.interfaceMouseIsOver.name == "Bottom Rack Panel")
             {            
 
-                OnRemoved?.Invoke(slotsOnInterface[obj]);
+                OnRemoved?.Invoke(slotsOnInterface[obj]);                
 
                 slotsOnInterface[obj].RemoveItem();
             }

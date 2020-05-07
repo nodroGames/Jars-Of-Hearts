@@ -29,7 +29,7 @@ public class InventoryObject : ScriptableObject
             SetFirstEmptySlot(_item, _amount, _location, _currentRotTime, _currentRotRate);
             return true;
         }
-        slot.AddAmount(_amount);
+        //slot.AddAmount(_amount);
         return true;
     }
 
@@ -185,15 +185,23 @@ public class InventorySlot
     public void UpdateSlot(Item _item, int _amount, LocationTypes _location, float _currentRotTime, float _currentRotRate)
     {
         if (OnBeforeUpdate != null)
+        {
             OnBeforeUpdate.Invoke(this);
+            Debug.Log(item.Name);
+        }
+
         item = _item;
         amount = _amount;
         location = _location;
         currentRotTime = _currentRotTime;
         currentRotRate = _currentRotRate;
 
+
         if (OnAfterUpdate != null)
+        {
             OnAfterUpdate.Invoke(this);
+            Debug.Log(item.Name);
+        }
     }
     public void RemoveItem()
     {

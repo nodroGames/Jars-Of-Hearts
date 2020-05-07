@@ -11,18 +11,20 @@ public class Player : MonoBehaviour
     public InventoryObject trash;
     public InventoryObject topOvenRack;
     public InventoryObject bottomOvenRack;
+    public InventoryObject topCookieRack;
+    public InventoryObject bottomCookieRack;
 
     //[Line]
     public UserInterface _inventorySlot;
 
-    private Transform heartPool;
+    //private Transform heartPool;
 
     //public int Padding { get; }
 
     private void Awake()
     {
         //clearable = Inventories.GetType().GetInterface(typeof(IClearable).ToString);
-        heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
+        //heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
         
     }
 
@@ -73,5 +75,8 @@ public class Player : MonoBehaviour
         trash.Clear();
         topOvenRack.Clear();
         bottomOvenRack.Clear();
+        topCookieRack.Clear();
+        bottomCookieRack.Clear();
+
     }
 }

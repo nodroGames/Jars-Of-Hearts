@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef4fbb11c25450499f12d3921b00524, type: 3}
-  m_Name: Oven Top Cookie Inventory
+  m_Name: Oven Bottom Cookie Inventory
   m_EditorClassIdentifier: 
   savePath: /inventory.Save
   database: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e, type: 2}

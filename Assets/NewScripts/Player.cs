@@ -77,6 +77,5 @@ public class Player : MonoBehaviour
         bottomOvenRack.Clear();
         topCookieRack.Clear();
         bottomCookieRack.Clear();
-
     }
 }

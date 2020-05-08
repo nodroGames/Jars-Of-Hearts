@@ -12,7 +12,6 @@ public class OvenRack : MonoBehaviour
 
     public void SetCookiesOnRack(Item _item, int _amount, LocationTypes _location, float _currentRotTime, float _currentRotRate)
     {
-        Debug.Log(_item.Name);
         CookieItem cookieItem = GetComponentInChildren<CookieItem>();
         cookieItem.CovertToCookieType(_item);
 

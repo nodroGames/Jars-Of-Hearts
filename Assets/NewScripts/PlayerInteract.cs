@@ -43,7 +43,7 @@ namespace Assets.NewScripts
                 if (currentInterObjScript.heartInventory)
                 {
 
-                    currentInterObj.GetComponent<RealHeartScript>().HeartInInventory(inventory);
+                   // currentInterObj.GetComponent<RealHeartScript>().HeartInInventory(inventory);
                     //fTutScript.DestroyFIcon();
                     inventory.AddItemHeart(currentInterObj);
                 }

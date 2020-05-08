@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CookProduct : MonoBehaviour
 {
-    [SerializeField]
-    private ItemDatabaseObject database;
+    //[SerializeField]
+    //private ItemDatabaseObject database;
     [SerializeField]
     private CookingStates cookingStates;
     [SerializeField]

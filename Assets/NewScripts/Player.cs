@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 //using static Utilities;
 
 public class Player : MonoBehaviour
@@ -17,18 +14,8 @@ public class Player : MonoBehaviour
     //[Line]
     public UserInterface _inventorySlot;
 
-    //private Transform heartPool;
-
-    //public int Padding { get; }
-
-    private void Awake()
-    {
-        //clearable = Inventories.GetType().GetInterface(typeof(IClearable).ToString);
-        //heartPool = GameObject.FindGameObjectWithTag("HeartPool").GetComponent<Transform>();
-        
-    }
-
-   
+    public delegate void AddToInventoryHandler(Item item, float currentRotTime, float currentRotRate);
+    public event AddToInventoryHandler OnAdded;
 
     public void OnTriggerEnter2D(Collider2D other)
     {       
@@ -44,7 +31,9 @@ public class Player : MonoBehaviour
 
             if (inventory.AddItem(_item, 1, location, currentRotTime, currentRotRate))
             {
-
+                OnAdded?.Invoke(_item, currentRotTime, currentRotRate);
+                //RotTimer rotTime = GetComponentInChildren<RotTimer>();
+                //rotTime.StartRot(_item, currentRotTime, currentRotRate);
                 Destroy(other.gameObject);
             }
         }

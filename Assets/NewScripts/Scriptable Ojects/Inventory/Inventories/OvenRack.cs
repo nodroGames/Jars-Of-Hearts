@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OvenRack : MonoBehaviour
 {
-    public  InventoryObject cookieInventory = default;
+    public InventoryObject cookieInventory = default;
 
     public ItemDatabaseObject database;
     

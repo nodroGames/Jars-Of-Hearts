@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
-using System;
 
 public abstract class UserInterface : MonoBehaviour
 {
@@ -13,22 +11,22 @@ public abstract class UserInterface : MonoBehaviour
     public InventoryObject inventory;
     public Dictionary<GameObject, InventorySlot> slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
     
-    public List<InventoryType> listOfProducts;
+    //public List<InventoryType> listOfProducts;
 
-    private int rotBaseTime;
+    //private int rotBaseTime;
 
-    private float half;
-    private float quarter;
+    //private float half;
+    //private float quarter;
 
     public delegate void RemoveFromInventoryHandler(InventorySlot slotsOnInterface);
     public event RemoveFromInventoryHandler OnRemoved;
 
-    private void Awake()
-    {
-        rotBaseTime = 60;
-        half = 0.50f;
-        quarter = 0.75f;
-    }
+    //private void Awake()
+    //{
+    //    rotBaseTime = 60;
+    //    half = 0.50f;
+    //    quarter = 0.75f;
+    //}
 
     void Start()
     {
@@ -53,77 +51,77 @@ public abstract class UserInterface : MonoBehaviour
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
     }
 
-    private void swapProductState()
-    {
-            foreach (KeyValuePair<GameObject, InventorySlot> obj in slotsOnInterface)
-            {
-            if (obj.Value.item.Id >= 0)
-            {
-                // Changes to Mush State
-                if (obj.Value.currentRotTime <= rotBaseTime * 0)
-                {
-                    obj.Value.ItemObject = listOfProducts[3];
-                    obj.Value.item = listOfProducts[3].data;
+    //private void swapProductState()
+    //{
+    //        foreach (KeyValuePair<GameObject, InventorySlot> obj in slotsOnInterface)
+    //        {
+    //        if (obj.Value.item.Id >= 0)
+    //        {
+    //            // Changes to Mush State
+    //            if (obj.Value.currentRotTime <= rotBaseTime * 0)
+    //            {
+    //                obj.Value.ItemObject = listOfProducts[3];
+    //                obj.Value.item = listOfProducts[3].data;
 
-                    obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
+    //                obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
 
-                    obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = false;
-                }
+    //                obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = false;
+    //            }
 
-                // Changes to half rot state
-                else if (obj.Value.currentRotTime <= rotBaseTime * half)
-                {
-                    if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
-                    {
-                        obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
-                    }
-                    if (obj.Value.currentRotTime > 0.00f)
-                    {
-                        obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
-                    }
-                    else { return; }
+    //            // Changes to half rot state
+    //            else if (obj.Value.currentRotTime <= rotBaseTime * half)
+    //            {
+    //                if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
+    //                {
+    //                    obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
+    //                }
+    //                if (obj.Value.currentRotTime > 0.00f)
+    //                {
+    //                    obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
+    //                }
+    //                else { return; }
 
-                    obj.Value.ItemObject = listOfProducts[2];
-                    obj.Value.item = listOfProducts[2].data;
+    //                obj.Value.ItemObject = listOfProducts[2];
+    //                obj.Value.item = listOfProducts[2].data;
 
-                    obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
-                }
+    //                obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
+    //            }
 
-                // Changes to quarter rot state
-                else if (obj.Value.currentRotTime <= rotBaseTime * quarter)
-                {
-                    if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
-                    {
-                        obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
-                    }
-                    if (obj.Value.currentRotTime > 0.00f)
-                    {
-                        obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
-                    }
-                    else { return; }
+    //            // Changes to quarter rot state
+    //            else if (obj.Value.currentRotTime <= rotBaseTime * quarter)
+    //            {
+    //                if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
+    //                {
+    //                    obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
+    //                }
+    //                if (obj.Value.currentRotTime > 0.00f)
+    //                {
+    //                    obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
+    //                }
+    //                else { return; }
 
-                    obj.Value.ItemObject = listOfProducts[1];
-                    obj.Value.item = listOfProducts[1].data;
+    //                obj.Value.ItemObject = listOfProducts[1];
+    //                obj.Value.item = listOfProducts[1].data;
 
-                    obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
-                }
+    //                obj.Value.UpdateSlot(obj.Value.item, obj.Value.amount, obj.Value.location, obj.Value.currentRotTime, obj.Value.currentRotRate);
+    //            }
 
-                // Starts at healthy heart state
-                else
-                {
-                    if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
-                    {
-                        obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
-                    }
-                    if (obj.Value.currentRotTime > 0.00f)
-                    {
-                        obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
-                    }
-                    else { return; }
-                }
-            }
-        }
-    }
+    //            // Starts at healthy heart state
+    //            else
+    //            {
+    //                if (obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled == false)
+    //                {
+    //                    obj.Value.slotDisplay.GetComponentInChildren<Animator>().enabled = true;
+    //                }
+    //                if (obj.Value.currentRotTime > 0.00f)
+    //                {
+    //                    obj.Value.currentRotTime -= Time.deltaTime * obj.Value.currentRotRate;
+    //                }
+    //                else { return; }
+    //            }
+    //        }
+    //    }
+    //}
 
     private void OnSlotUpdate(InventorySlot _slot)
     {
@@ -169,7 +167,6 @@ public abstract class UserInterface : MonoBehaviour
     public void OnEnterInterface(GameObject obj)
     {
         MouseData.interfaceMouseIsOver = obj.GetComponent<UserInterface>();
-       // Debug.Log(MouseData.interfaceMouseIsOver.name);
     }
     public void OnExitInterface(GameObject obj)
     {
@@ -244,26 +241,7 @@ public static class MouseData
     public static GameObject slotHoveredOver;
 }
 
-public static class ExtensionMethods
-{
-    //public static void UpdateSlotDisplay(this Dictionary<GameObject, InventorySlot> _slotsOnInterface)
-    //{
-    //    foreach (KeyValuePair<GameObject, InventorySlot> _slot in _slotsOnInterface)
-    //    {
-    //        if (_slot.Value.item.Id >= 0)
-    //        {
-    //            _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _slot.Value.ItemObject.uiDisplay;
-    //            _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
-    //            _slot.Key.transform.GetComponent<Image>().color = new Color(1, 1, 1, 0);
-    //            _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = _slot.Value.amount == 1 ? "" : _slot.Value.amount.ToString("n0");
-    //        }
-    //        else
-    //        {
-    //            _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
-    //            _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
-    //            _slot.Key.transform.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-    //            _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
-    //        }
-    //    }
-    //}
-}
+//public static class ExtensionMethods
+//{
+
+//}

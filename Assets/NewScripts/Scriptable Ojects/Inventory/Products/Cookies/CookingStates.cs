@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CookingStates : MonoBehaviour
 {
@@ -66,7 +64,7 @@ public class CookingStates : MonoBehaviour
         }
     }
 
-    public void Bake()
+    private void Bake()
     {
         for (int j = 0; j < currentStateArray.Length - 1; j++)
         {

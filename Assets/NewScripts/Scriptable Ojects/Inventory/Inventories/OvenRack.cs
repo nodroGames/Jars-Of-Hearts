@@ -14,6 +14,7 @@ public class OvenRack : MonoBehaviour
     {
         Debug.Log(_item.Name);
         CookieItem cookieItem = GetComponentInChildren<CookieItem>();
+        
 
         if (cookieItem)
         {

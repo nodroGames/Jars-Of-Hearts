@@ -7,6 +7,5 @@ public class CookieItem : MonoBehaviour
 {
     public InventoryType item;
 
-
 }
 

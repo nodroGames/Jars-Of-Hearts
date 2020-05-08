@@ -10,8 +10,6 @@ public class CookingStates : MonoBehaviour
     private InventoryType[] quarterCookieStates;
     [SerializeField]
     private InventoryType[] halfCookieStates;
-    //[SerializeField]
-   // private ItemDatabaseObject database;
     [SerializeField]
     private CookProduct timer;
 

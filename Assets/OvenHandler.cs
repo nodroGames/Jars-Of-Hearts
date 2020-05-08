@@ -20,8 +20,8 @@ public class OvenHandler : MonoBehaviour
     private Item item;
     private int amount;
     private LocationTypes location;
-    private float currentRotTime;
-    private float currentRotRate;
+    private float currentRotTime = 0;
+    private float currentRotRate = 0;
 
     
 

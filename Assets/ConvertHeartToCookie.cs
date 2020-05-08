@@ -19,14 +19,14 @@ public class ConvertHeartToCookie : MonoBehaviour
     }
 
     public void ConvertToCorrectCookie(Item _item, int _amount, LocationTypes _location, float _currentRotTime, float _currentRotRate)
-    {        
+    {
         item = _item;
 
-        if (item.Id == 0)
-        {
-            item.Id = 4;
-            item = database.ItemObjects[item.Id].data;            
-        }
+        //if (item.Id == 0)
+        //{
+        //    item.Id = 4;
+        //    item = database.ItemObjects[item.Id].data;
+        //}
         ovenRack.SetCookiesOnRack(item, _amount, _location, _currentRotTime, _currentRotRate);
     }
 

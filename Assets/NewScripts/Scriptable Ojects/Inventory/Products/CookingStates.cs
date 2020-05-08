@@ -41,7 +41,7 @@ public class CookingStates : MonoBehaviour
 
     public bool SetupState(Item _item)
     {
-        if (_item.Id == 16) //replace with burnt ID
+        if (_item.Id == 16)
         {
             return false;
         }

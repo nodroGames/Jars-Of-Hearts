@@ -15,7 +15,7 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 43b12c41102bf6e4a895d877d5ef7e31, type: 3}
   stackable: 0
   data:
-    Name: Quarter Normal Cookie
-    Id: -1
+    Name: Quarter Overcooked Cookie
+    Id: 11
   type: 1
   description: 

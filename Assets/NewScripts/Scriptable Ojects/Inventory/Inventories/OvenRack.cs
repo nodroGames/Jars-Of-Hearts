@@ -14,7 +14,7 @@ public class OvenRack : MonoBehaviour
     {
         Debug.Log(_item.Name);
         CookieItem cookieItem = GetComponentInChildren<CookieItem>();
-        
+        cookieItem.CovertToCookieType(_item);
 
         if (cookieItem)
         {
@@ -22,7 +22,7 @@ public class OvenRack : MonoBehaviour
             float currentRotTime = _currentRotTime;
             float currentRotRate = _currentRotRate;
 
-            Item item = new Item(cookieItem.item);
+            Item item = new Item(cookieItem.product);
 
             for (int i = 0; i < cookieInventory.GetSlots.Length; i++)
             {

@@ -9341,11 +9341,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OvenCookieSlotPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 2556135785549315912, guid: 913a810239a66214ea6ff13a3aef842f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2556135785549315913, guid: 913a810239a66214ea6ff13a3aef842f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9451,27 +9446,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4618765377618776162, guid: 913a810239a66214ea6ff13a3aef842f,
-        type: 3}
-      propertyPath: database
-      value: 
-      objectReference: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e,
-        type: 2}
-    - target: {fileID: 4618765377618776162, guid: 913a810239a66214ea6ff13a3aef842f,
-        type: 3}
-      propertyPath: cookingStates
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737783731844230218, guid: 913a810239a66214ea6ff13a3aef842f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737783731844230218, guid: 913a810239a66214ea6ff13a3aef842f,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ba7aca0b7c8e0f44d83f416888c274dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 913a810239a66214ea6ff13a3aef842f, type: 3}
 --- !u!224 &1230034607 stripped
@@ -10165,7 +10139,6 @@ GameObject:
   - component: {fileID: 1295383642}
   - component: {fileID: 1295383641}
   - component: {fileID: 1295383640}
-  - component: {fileID: 1295383639}
   - component: {fileID: 1295383638}
   - component: {fileID: 1295383637}
   - component: {fileID: 1295383636}
@@ -10268,18 +10241,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e3cc0678031b1bb4ab818f9bc415daec, type: 2}
   - {fileID: 11400000, guid: df48f6be1452fc246a5dc434cfc900ef, type: 2}
   timer: {fileID: 1295383637}
---- !u!114 &1295383639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1295383633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f345c0c32267c4c861175ccb3d1c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1295383640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12116,7 +12077,6 @@ GameObject:
   - component: {fileID: 1673201259}
   - component: {fileID: 1673201261}
   - component: {fileID: 1673201263}
-  - component: {fileID: 1673201264}
   - component: {fileID: 1673201266}
   - component: {fileID: 1673201265}
   - component: {fileID: 1673201262}
@@ -12264,18 +12224,6 @@ MonoBehaviour:
   cookieInventory: {fileID: 11400000, guid: a60311542d58b1744ba02262bdc269f9, type: 2}
   database: {fileID: 11400000, guid: 2b6e8cc0a31909044bbc599912e12a6e, type: 2}
   inventory: {fileID: 1673201261}
---- !u!114 &1673201264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673201257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f345c0c32267c4c861175ccb3d1c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1673201265
 MonoBehaviour:
   m_ObjectHideFlags: 0
